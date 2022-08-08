@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'django_monkey.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # engine: mysql
-        'NAME': 'db-monkey',  # DB Name
+        'NAME': 'monkey_magic',  # DB Name
         'USER': 'monkey',  # DB User
         'PASSWORD': 'magicmagic',  # Password
         'HOST': 'db-monkey.clff97oag28r.ap-northeast-2.rds.amazonaws.com',  # 생성한 데이터베이스 엔드포인트
