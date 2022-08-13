@@ -18,5 +18,6 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('users/', include('users.urls')),  # users>urls.py에서 관리할거야
+    path('users/', include('users.urls')),
+      # users>urls.py에서 관리할거야
 ]
