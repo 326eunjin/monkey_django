@@ -1,145 +1,82 @@
- <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>회원가입</title>
-	<link rel="stylesheet" href="/static/css/style.css" type="text/css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="   crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-</head>
-<body>
-    <div id="wrap" class="container">
-         <header class="bg-warning">
-            <div class="display-2 text-center bg-primary">MEMO</div>
-        </header>
-        <div>
-            <br>
-            <!--이메일-->
-            <div>user name : </div>
-            <div class="d-flex">
-                <input type="text" name="userName" id="userName" class="form-control input-text">
-                <div><button id="duplicateCheckButton" class="button btn btn-primary">중복체크</button></div>
+    
+    <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    </head>
+    <body>
+        <div class= "container">
+            <div class = "row mt-5">
+                <div class = "col-12 text-center">
+                    <h1>회원가입</h1>
+                </div>
             </div>
-			<div id="duplicateChecked" class="d-none"><small class="text-success">아이디 중복체크 완료!</small></div>
-			<div id="duplicateNotChecked" class="d-none"><small class="text-danger">이미 있는 id입니다. 다른 id를 입력해주세요.</small></div>
-            
-            <br>
-            <!--비밀번호 & 확인-->
-            <div>
-                password : <input type="password" name="password" id="password" class="form-control input-text" >
-            <br>
-                confirm password : <input type="password" id="passwordCheck" class="form-control input text">
-                <div id="confirmFailedPW" class="d-none"><small class="text-danger">비밀번호가 다릅니다.</small></div>
-                <div id="confirmedPW" class="d-none"><small class="text-success">비밀번호가 같습니다.</small></div>
-            </div>
-            <br>
-            <br>
-            <div><button id="joinButton" class="button btn btn-primary" type="submit">Join</button></div>
         </div>
-
-        <footer>
-        <div class="small text-secondary text-center">2022 All Rights Reserved, Note me</div>
-        </footer>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+        
+        <!--            폼 안에다가 입력해줘야한다. (안써주면 에러발생)
+             csrf_token 폼의 경우에는 , 데이터를 서버에 전달하는 기능.이때 암호화된 키를 숨겨놓아 크로스도메인을 막기 위함. -->
+    <!-- bootstrap -component - forms -->
+              <div class= "container">
+                <div class = "row mt-5">
+                    {{error}}
+                    <div class = "col-12 ">
+            <div class = "row mt-5">
+                <div class = "col-12 ">
+                    <form method = "POST" action = ".">  
+                    {% csrf_token %} 
+    <div class="form-group">
+      <label for="username">사용자 이름</label>
+      <input 
+      type="text" 
+      class="form-control" 
+      id="username" 
+      placeholder="사용자 이름"
+      name="username">   
+      <!-- 이 name 값으로 정보가 전달된다 -->
     </div>
-        <script>
-        	$(document).ready(function(){
-        		var confirmed = false;
-        		var duplicate_confirmed = false;
-        		
-        		$("#passwordCheck").on("propertychange change paste input", function(){
-        			let passwordcheck = $("#passwordCheck").val();
-        			let password = $("#password").val();
-        			
-        			if(passwordcheck==password && password != ""){
-        				$("#confirmedPW").removeClass("d-none");
-        				$("#confirmFailedPW").addClass("d-none");
-        				confirmed = true;
 
-        			}else{
-        				if(password != ""){
-        				$("#confirmedPW").addClass("d-none");
-        				$("#confirmFailedPW").removeClass("d-none");
-        				confirmed = false;
-        				}
-        			}
-        		})
-        		
-        		//아이디 중복여부 체크
-        		$("#duplicateCheckButton").on("click", function(){
-        			if($("#userName").val() == ""){
-        				alert("User name needed");
-        			} else{
-        			$.ajax({
-        				type : "get"
-        				,url : "/user/duplicate_id"
-        				,data : {
-        					"userId" : $("#userName").val()
-        				}
-        				, success : function(data){
-        					if(data.result == false){ //중복 아님
-        						duplicate_confirmed = true;
-                				$("#duplicateChecked").removeClass("d-none");
-                				$("#duplicateNotChecked").addClass("d-none");
-        					} else{ //중복임
-                				$("#duplicateNotChecked").removeClass("d-none");
-                				$("#duplicateChecked").addClass("d-none");
-        						duplicate_confirmed = false;
-        					}
-        				}
-        				, error : function(){
-        					alert("에러");
-        				}			
-        			})
-        			}
-        		})
-        		//쪼인
-        		$("#joinButton").on("click", function(){
-        			let userName = $("#userName").val();
-        			let password = $("#password").val();
-        			let alertUser = "";
-        			
-        			if(userName == ""){
-        				alertUser += "User name";
-        			}
-        			if(password == ""){
-        				alertUser += " Password";
-        			}        			
-        			if(confirmed == false){
-        				alertUser += " Confirmation";
-        			}
-        			if(duplicate_confirmed == false){
-        				alertUser += " Id Confirmation";
-        			}
-        			if(userName != "" && password != "" && confirmed==true && duplicate_confirmed == true){
-        				$.ajax({
-        					type : "post"
-        					, url : "/user/signup"
-        					, data : {
-        						"userId" : userName,
-        						"password" : password
-        					}
-        					, success : function(data){
-        						if(data.result == "success"){
-        							location.href = "/user/login/view";
-        						} else{
-        							alert("실패");
-        						}
-        					}
-        					, error : function(){
-        						alert("에러임니당");
-        						alert("code : " + request.status + "\n" + "message: " + request.responseText + "\n" + "errer : " + error);
-        					}
-        				})
-        			} else{
-        				alert(alertUser + " needed");
-        			}
-        		})
-        })
-        		
-        	
-        </script>
+    <div class="form-group">
+      <label for="password">비밀번호</label>
+      <input type="password" 
+      class="form-control"
+       id="password"
+        placeholder="비밀번호"
+        name= "password">
+    </div>
+    
+    <div class="form-group">
+      <label for="re_password">비밀번호 확인</label>
+      <input 
+      type= "password" 
+      class="form-control"
+       id="re_password"
+        placeholder="비밀번호 확인"
+        name = "re_password">
+    </div>
+    <div class="form-group">
+      <label for="gender">성별</label>
+      <input type="radio" name="gender" value=0>남
+      <input type="radio" name="gender" value=1>여      
+    </div>
+<div class="form-group">
+  <label for="nationality">출신 대륙</label>
+  <input type="radio" name="nationality" value="asia">아시아
+  <input type="radio" name="nationality" value="europe">유럽
+  <input type="radio" name="nationality" value="south america">남미
+  <input type="radio" name="nationality" value="north america">북미
+  <input type="radio" name="nationality" value="africa">아프리카
+  </div>
+
+</div>
+    <button type="submit" class="btn btn-primary">등록</button>
+    </form>    
+
+
 </body>
 </html>
