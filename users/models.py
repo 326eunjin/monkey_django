@@ -7,6 +7,12 @@ class User(models.Model):
     userpw = models.CharField(db_column='userPW', max_length=45)
     gender = models.IntegerField()
     nationality = models.CharField(max_length=45)
+    # Field name made lowercase.
+    createdat = models.DateTimeField(
+        db_column='createdAt', blank=True, null=True)
+    # Field name made lowercase.
+    updatedat = models.DateTimeField(
+        db_column='updatedAt', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -25,6 +31,12 @@ class Usermedicalinfo(models.Model):
     lymphedema = models.IntegerField()
     lethargy = models.IntegerField()
     diagnosed = models.IntegerField()
+    # Field name made lowercase.
+    createdat = models.DateTimeField(
+        db_column='createdAt', blank=True, null=True)
+    # Field name made lowercase.
+    updatedat = models.DateTimeField(
+        db_column='updatedAt', blank=True, null=True)
 
     class Meta:
         managed = False
