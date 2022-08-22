@@ -4,7 +4,7 @@ from django.db import models
 class User(models.Model):
     mail = models.CharField(max_length=100)
     # Field name made lowercase.
-    userpw = models.CharField(db_column='userPW', max_length=45)
+    userpw = models.CharField(db_column='userPW', max_length=128)
     gender = models.IntegerField()
     nationality = models.CharField(max_length=45)
     # Field name made lowercase.

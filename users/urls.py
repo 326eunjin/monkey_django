@@ -6,7 +6,8 @@ import users.views
 
 app_name = "users"
 urlpatterns = [
-    path('login/', auth_views.LoginView.as_view(
-        template_name='users/login.jsp'), name='login'),
-    path('signup/', users.views.signup, name='signup')
+    # path('login/', auth_views.LoginView.as_view(
+    #     template_name='users/login.jsp'), name='login'),
+    path('signup/', users.views.signup, name='signup'),
+    path('login/', users.views.login, name='login')
 ]

@@ -1,7 +1,7 @@
 from datetime import datetime
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import make_password, check_password
 from .models import User
 # Create your views here.
 
@@ -24,8 +24,33 @@ def signup(request):  # 회원가입 페이지를 보여주기 위한 함수
             res_data['error'] = '비밀번호가 다릅니다.'
         else:
             # make password 함수 호출할것
-            user = User(mail=username, userpw=password,
+            user = User(mail=username, userpw=make_password(password),
                         gender=gender, nationality=nationality)
             user.save()
         # signup를 요청받으면 signup.html 로 응답.
         return render(request, 'users/login_success.jsp', res_data)
+
+
+def login(request):
+    if request.method == 'GET':
+        return render(request, 'users/login.jsp')
+    elif request.method == 'POST':
+        mail = request.POST.get('mail', None)
+        userpw = request.POST.get('userpw', None)
+    res_data = {}
+    if not (mail and userpw):
+        res_data['error'] = "모든 칸을 다 입력해주세요"
+    else:
+        user = User.objects.get(mail=mail)
+        if check_password(userpw, user.userpw):
+            print("HI")
+            request.session['user'] = user.mail
+            return redirect('/')
+        else:
+            res_data['error'] = "비밀번호가 틀렸습니다."
+        print("HI2")
+    return render(request, 'users/login_error.jsp', res_data)
+
+
+def home(request):
+    return HttpResponse('Home!')
