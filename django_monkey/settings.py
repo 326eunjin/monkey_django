@@ -146,7 +146,7 @@ def install_as_MySQLdb():
     sys.modules["MySQLdb"] = sys.modules["_mysql"] = sys.modules["pymysql"]
 
 
-STATIC_URL = '/static/'
+STATIC_URL = 'django_monkey/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),

@@ -1,3 +1,4 @@
+from curses.ascii import HT
 from datetime import datetime
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -28,7 +29,7 @@ def signup(request):  # 회원가입 페이지를 보여주기 위한 함수
                         gender=gender, nationality=nationality)
             user.save()
         # signup를 요청받으면 signup.html 로 응답.
-        return render(request, 'users/login_success.jsp', res_data)
+        return render(request, 'users/signup_success.jsp', res_data)
 
 
 def login(request):
@@ -43,14 +44,24 @@ def login(request):
     else:
         user = User.objects.get(mail=mail)
         if check_password(userpw, user.userpw):
-            print("HI")
             request.session['user'] = user.mail
             return redirect('/')
         else:
             res_data['error'] = "비밀번호가 틀렸습니다."
-        print("HI2")
     return render(request, 'users/login_error.jsp', res_data)
 
 
 def home(request):
-    return HttpResponse('Home!')
+    return HttpResponse("HOME!")
+    # user_pk = request.session.get('user')
+    # if user_pk:
+    #     user = User.objects.get(mail=user_pk)//로그인했으면 메일 주소가 나옴
+    #     return HttpResponse(user.mail)
+    # return HttpResponse("login success")//로그인 안 했으면 이걸로 나옴
+
+
+def logout(request):
+    if request.session['user']:  # 로그인중이라면
+        del(request.session['user'])
+        print("hi")
+    return redirect('/')  # 홈화면으로 이동
