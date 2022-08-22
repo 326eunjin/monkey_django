@@ -145,8 +145,9 @@ class Usermedicalinfo(models.Model):
     lymphedema = models.IntegerField()
     lethargy = models.IntegerField()
     diagnosed = models.IntegerField()
-    createdat = models.DateTimeField(db_column='createdAt', blank=True, null=True)  # Field name made lowercase.
-    updatedat = models.DateTimeField(db_column='updatedAt', blank=True, null=True)  # Field name made lowercase.
+    createdat = models.DateTimeField(db_column='createdAt')  # Field name made lowercase.
+    updatedat = models.DateTimeField(db_column='updatedAt')  # Field name made lowercase.
+    image = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False

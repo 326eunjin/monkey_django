@@ -32,11 +32,10 @@ class Usermedicalinfo(models.Model):
     lethargy = models.IntegerField()
     diagnosed = models.IntegerField()
     # Field name made lowercase.
-    createdat = models.DateTimeField(
-        db_column='createdAt', blank=True, null=True)
+    createdat = models.DateTimeField(db_column='createdAt')
     # Field name made lowercase.
-    updatedat = models.DateTimeField(
-        db_column='updatedAt', blank=True, null=True)
+    updatedat = models.DateTimeField(db_column='updatedAt')
+    image = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False
