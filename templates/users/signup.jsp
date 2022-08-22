@@ -30,8 +30,9 @@
             <div class = "col-12 ">
             <form method = "POST" action = ".">  
                 {% csrf_token %} 
-			    <div class="form-group">
-      			<label for="username">사용자 이름</label>
+				<div class="form-group">
+				<label for="username">사용자 이름</label>
+			    <div class="d-flex">
     <input 
       type="text" 
       class="form-control" 
@@ -39,7 +40,11 @@
       placeholder="사용자 이름"
       name="username">   
       <!-- 이 name 값으로 정보가 전달된다 -->
+	  <button id="duplicationCheckButton" class="button btn-primary btn">중복확인</button>
     </div>
+	<div id="duplicationChecked" class="d-none text-success">중복확인 완료</div>
+	<div id="duplicationCheckFailed" class="d-none text-danger">다른 username을 입력해주세요</div>
+	</div>
 
     <div class="form-group">
       <label for="password">비밀번호</label>
@@ -60,9 +65,11 @@
         name = "re_password">
     </div>
     <div class="form-group">
-      <label for="gender">성별</label>
+    <label for="gender">성별
+	<br>
       <input type="radio" name="gender" value=0>Male
       <input type="radio" name="gender" value=1>Female    
+	</label>
     </div>
 <div class="form-group">
 	<div>Nationality</div>
@@ -299,8 +306,24 @@
     </form>
 
 <script>
-	$(document).ready({
+	$(document).ready(function(){
 
+		$("#duplicationCheckButton").on("click", function(){
+			alert("check");
+		})
+		$("#submitButton").on("click", function(){
+			let completed = false;
+			let username = $("#username").val();
+			let password = $("#password").val();
+			let passwordCheck = $("#re_password").val();
+			let gender = $("input[name=gender]:checked").val();
+			let nationality = $("#nationality").val();
+			if(username != "" && password != "" && passwordCheck !="" && gender != "" && nationality != ""){
+				alert("다 입력됨");
+			} else{
+				alert("빈 칸을 모두 작성해주세요");
+			}
+		})
 	})
 
 </script>
