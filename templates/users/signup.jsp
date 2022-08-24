@@ -344,6 +344,7 @@
 	$(document).ready(function(){
 
 		var passwordChecker = false;
+		var idChecker = false;
 		$("#re_password").change(function(){
 			let password = $("#password").val();
 			let passwordCheck = $("#re_password").val();
@@ -359,8 +360,26 @@
 		})
 		//중복 id 체크
 		$("#duplicationCheckButton").on("click", function(){
-			
-			alert("check");
+			$.ajax({
+				tyle : "get"
+				, url : "/users/signup/idcheck"
+				, data : {"email" : $("#username").val()}
+				, success : function(data){
+					if(data.result =='CHECK COMPLETED'){
+						$("#duplicationChecked").removeClass("d-none");
+						$("#duplicationCheckFailed").addClass("d-none");
+						idChecker = true;
+					} else{
+						alert("Email이 중복됩니다.");
+						$("#duplicationCheckFailed").removeClass("d-none");
+						$("#duplicationChecked").addClass("d-none");
+						idChecker = false;
+					}
+				}
+				, error : function(){
+					alert("에러임");
+				}
+			})
 		})
 		//입력 버튼 완성되어야 넘기기
 		$("#submitButton").on("click", function(){
@@ -370,11 +389,17 @@
 			let passwordCheck = $("#re_password").val();
 			let gender = $("input[name=gender]:checked").val();
 			let nationality = $("#nationality").val();
+
+			let filled = false;
+
 			if(username != "" && password != "" && passwordCheck !="" && gender != "" && nationality != "" && passwordChecker == true){
+				filled = true;
+			}
+			if(filled==true &&idChecker ==true){
 				
 				$.ajax({
 					type : "post"
-					,url : "/users/signup/"
+					,url : "/users/signup/view/"
 					,data : {
 						"mail" : username
 						,"userPW" : password
@@ -383,14 +408,16 @@
 					}
 					,success : function(data){
 						alert("가입완료");
-						location.href= "/users/login";
+						location.href= "/users/login/view/";
 					}
 					,error : function(){
 						alert("에러에러에러");
 					}
 				})
-			} else{
-				alert("빈 칸을 모두 작성해주세요");
+			} else if(filled==true &&idChecker ==false){
+				alert("Email 중복확인을 해주세요.");
+			} else if (filled==false){
+				alert("항목을 모두 채워주세요.");
 			}
 		})
 	})

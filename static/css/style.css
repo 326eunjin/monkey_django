@@ -116,8 +116,9 @@ h1 a {
 
 #mv {
   height: 770px;
+  width : 1200px;
   overflow: hidden;
-  background-color: #e0e3ed;
+  background-image : url("/Users/jiwon/monkey_django/static/css/images/main_image.png")
 }
 
 #mv img {

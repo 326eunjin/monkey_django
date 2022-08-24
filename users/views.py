@@ -39,7 +39,7 @@ def signup(request):
             request.session['user'] = user.id
             res_data['status'] = '1'
             return JsonResponse(res_data)
-        return render(request, 'users/signup_success.jsp', res_data)
+        return render(request, 'users/login.jsp', res_data)
 
 def login(request):
     if request.method == 'GET':
@@ -74,3 +74,17 @@ def logout(request):
         del(request.session['user'])
         print("hi")
     return redirect('/')  # 홈화면으로 이동
+
+def idcheck(request):
+    if request.method == 'GET' :
+        emailInput = request.GET.get('email', None)
+        res_data = {}
+        try :
+            userFound = User.objects.get(mail = emailInput)
+            res_data['result'] = 'DUPLICATED'
+            return JsonResponse(res_data)
+        except User.DoesNotExist: 
+            res_data['result'] = 'CHECK COMPLETED'
+            return JsonResponse(res_data)
+
+        

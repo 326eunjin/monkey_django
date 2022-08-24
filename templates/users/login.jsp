@@ -61,7 +61,7 @@
 	<button type="submit" class="btn btn-primary btn-block">로그인</button>
 	</div>
 	</form>
-	<p class="text-center"><a href="/users/signup" id="register">회원 가입</a></p>
+	<p class="text-center"><a href="/users/signup/view/" id="register">회원 가입</a></p>
 	</div>
 </div>
 </body>

@@ -8,6 +8,12 @@
       src="https://kit.fontawesome.com/7d891d878a.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="   crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
@@ -49,8 +55,6 @@
     </header>
 
     <section id="mv">
-      <img src="/Users/jiwon/monkey_django/images/main_image.png" />
-
       <div class="main_text">
         <div class="text_box">
           <h3>원숭이두창</h3>
@@ -154,28 +158,17 @@
         </article>
       </section>
     </div>
-    <footer>
+    <footer class="d-flex">
       <h1 class="tit_h1">
         <a href="#none"> </a>
-        <span class="blind">posco</span>
       </h1>
       <div class="foot_box">
-        <ul>
-          <li>
-            <a href="#none">개인정보처리방침</a>
-          </li>
-          <li>
-            <a href="#none">이메일무단수집거부</a>
-          </li>
-          <li>
-            <a href="#none">이용약관</a>
-          </li>
-        </ul>
         <address>
-          경기도 안산시 단원구 번영로 68 대표이사: 조일현, 오준호
-          사업자등록번호: 122-00-00000<br />
-          TEL : 031.362.0000 FAX : 031.362.0000 Copyright (c) 2020 SW. ALL
-          RIGHTS RESERVED
+          Monkey Magic
+          <br />
+          글로벌미디어학부 소프트웨어학부 장은진 / 20182728 이동호 / 글로벌미디어학부 20182764 황지원 / 글로벌미디어학부 2019 방지훈 /  글로벌미디어학부 2021 김혜령
+          TEL : 010.5112.1400 Copyright (c) 2022 SW. ALL
+          ALL RIGHTS RESERVED
         </address>
       </div>
     </footer>
