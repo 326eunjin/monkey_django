@@ -2,9 +2,44 @@
     
     <head>
         <meta charset="utf-8">
+		<title>회원가입</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="   crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
+	function getCookie(name) {
+		var cookieValue = null;
+		if (document.cookie && document.cookie !== '') {
+			var cookies = document.cookie.split(';');
+			for (var i = 0; i < cookies.length; i++) {
+				var cookie = cookies[i].trim();
+				// Does this cookie string begin with the name we want?
+				if (cookie.substring(0, name.length + 1) === (name + '=')) {
+					cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+					break;
+				}
+			}
+		}
+		return cookieValue;
+	}
+	var csrftoken = getCookie('csrftoken');
+  
+	function csrfSafeMethod(method) {
+		// these HTTP methods do not require CSRF protection
+		return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+	}
+	$.ajaxSetup({
+		beforeSend: function(xhr, settings) {
+			if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+				xhr.setRequestHeader("X-CSRFToken", csrftoken);
+			}
+		}
+	});
+  </script>
+  
     </head>
     <body>
         <div class= "container">
@@ -14,9 +49,7 @@
                 </div>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
     
         
         <!--            폼 안에다가 입력해줘야한다. (안써주면 에러발생)
@@ -28,9 +61,9 @@
             <div class = "col-12 ">
             <div class = "row mt-5">
             <div class = "col-12 ">
-            <form method = "POST" action = ".">  
+            	<!--<form method = "POST" action = ".">-->
                 {% csrf_token %} 
-				<div class="form-group">
+				<div class="form-group"> 
 				<label for="username">사용자 이름</label>
 			    <div class="d-flex">
     <input 
@@ -64,6 +97,8 @@
         placeholder="비밀번호 확인"
         name = "re_password">
     </div>
+	<div class="d-none text-success" id="passwordChecked">비밀번호 확인 완료</div>
+	<div class="d-none text-danger" id="passwordCheckFailed">비밀번호가 맞는지 다시 확인해주세요</div>
     <div class="form-group">
     <label for="gender">성별
 	<br>
@@ -303,14 +338,31 @@
 	</div>
 </div>
     <button id="submitButton" type="submit" class="btn btn-primary">등록</button>
-    </form>
+    <!--</form>-->
 
 <script>
 	$(document).ready(function(){
 
+		var passwordChecker = false;
+		$("#re_password").change(function(){
+			let password = $("#password").val();
+			let passwordCheck = $("#re_password").val();
+			if(password == passwordCheck){
+				$("#passwordChecked").removeClass("d-none");
+				$("#passwordCheckFailed").addClass("d-none");
+				passwordChecker = true; 
+
+			} else{
+				$("#passwordCheckFailed").removeClass("d-none");
+				$("#passwordChecked").addClass("d-none");
+			}
+		})
+		//중복 id 체크
 		$("#duplicationCheckButton").on("click", function(){
+			
 			alert("check");
 		})
+		//입력 버튼 완성되어야 넘기기
 		$("#submitButton").on("click", function(){
 			let completed = false;
 			let username = $("#username").val();
@@ -318,8 +370,25 @@
 			let passwordCheck = $("#re_password").val();
 			let gender = $("input[name=gender]:checked").val();
 			let nationality = $("#nationality").val();
-			if(username != "" && password != "" && passwordCheck !="" && gender != "" && nationality != ""){
-				alert("다 입력됨");
+			if(username != "" && password != "" && passwordCheck !="" && gender != "" && nationality != "" && passwordChecker == true){
+				
+				$.ajax({
+					type : "post"
+					,url : "/users/signup/"
+					,data : {
+						"mail" : username
+						,"userPW" : password
+						,"gender" : gender
+						,"nationality" : nationality
+					}
+					,success : function(data){
+						alert("가입완료");
+						location.href= "/users/login";
+					}
+					,error : function(){
+						alert("에러에러에러");
+					}
+				})
 			} else{
 				alert("빈 칸을 모두 작성해주세요");
 			}

@@ -1,36 +1,45 @@
 from curses.ascii import HT
 from datetime import datetime
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+from django.core.mail.backends import console
 from django.contrib.auth.hashers import make_password, check_password
 from .models import User
+import time
 # Create your views here.
 
 
-def signup(request):  # 회원가입 페이지를 보여주기 위한 함수
-    if request.method == "GET":
+def signup(request):
+    if request.method == 'GET':
         return render(request, 'users/signup.jsp')
+    elif request.method == 'POST':
+        mailInput = request.POST.get('mail', None)
+        userPWInput = request.POST.get('userPW', None)
+        genderInput = request.POST.get('gender', None)
+        nationalityInput = request.POST.get('nationality', None)
+        now = time.strftime('%Y-%m-%d %H:%M:%S')
 
-    elif request.method == "POST":
-        username = request.POST.get('username', None)  # 딕셔너리형태
-        password = request.POST.get('password', None)
-        re_password = request.POST.get('re_password', None)
-        gender = request.POST.get('gender', None)
-        nationality = request.POST.get('nationality', None)
         res_data = {}
-        if not (username and password and re_password and gender and nationality):
-            res_data['error'] = "모든 값을 입력해야 합니다."
-        if password != re_password:
-            # return HttpResponse('비밀번호가 다릅니다.')
-            res_data['error'] = '비밀번호가 다릅니다.'
-        else:
-            # make password 함수 호출할것
-            user = User(mail=username, userpw=make_password(password),
-                        gender=gender, nationality=nationality)
+        try : 
+            user = User.objects.get(mail = mailInput)
+            if user:
+                res_data['status'] = '0'
+                return JsonResponse(res_data)
+        except User.DoesNotExist:
+            user = User(
+                mail = mailInput,
+                userpw = make_password(userPWInput),
+                gender = genderInput,
+                nationality = nationalityInput,
+                createdat = now,
+                updatedat = now
+            )
             user.save()
-        # signup를 요청받으면 signup.html 로 응답.
+            user = User.objects.get(mail=mailInput)
+            request.session['user'] = user.id
+            res_data['status'] = '1'
+            return JsonResponse(res_data)
         return render(request, 'users/signup_success.jsp', res_data)
-
 
 def login(request):
     if request.method == 'GET':
