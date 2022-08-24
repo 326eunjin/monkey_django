@@ -61,7 +61,7 @@ def login(request):
 
 
 def home(request):
-    return HttpResponse("HOME!")
+    return render(request, 'users/index.jsp')
     # user_pk = request.session.get('user')
     # if user_pk:
     #     user = User.objects.get(mail=user_pk)//로그인했으면 메일 주소가 나옴

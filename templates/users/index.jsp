@@ -3,12 +3,12 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
-    <title>monky</title>
+    <title>monkey</title>
     <script
       src="https://kit.fontawesome.com/7d891d878a.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
     <header id="header">
@@ -16,7 +16,6 @@
         <div class="m_logo">
           <h1 class="tit_h1">
             <a href="#header"></a>
-            <span class="blind">posco</span>
           </h1>
           <h2>Monkey Magic</h2>
           <ul class="snb">
@@ -25,9 +24,6 @@
             </li>
             <li>
               <a href="#none">KOR</a>
-            </li>
-            <li>
-              <a href="#none">CHA</a>
             </li>
           </ul>
         </div>
@@ -53,7 +49,7 @@
     </header>
 
     <section id="mv">
-      <img src="images/main_image.png" />
+      <img src="/Users/jiwon/monkey_django/images/main_image.png" />
 
       <div class="main_text">
         <div class="text_box">
@@ -77,7 +73,7 @@
       <h2>Challenge Together, Change Tomorrow</h2>
       <article class="item_box">
         <a href="#none">
-          <img src="images/products1_m.png" alt="제품별이미지" />
+          <img src="/images/products1_m.png" alt="제품별이미지" />
           <h3>제품별<span>Product</span></h3>
           <p>
             포스코는 포항과 광양에 6개의 열연 공장과 1개의 하이밀 공장을 갖추고
@@ -88,7 +84,7 @@
       </article>
       <article class="item_box">
         <a href="#none">
-          <img src="images/products1_m.png" alt="제품별이미지" />
+          <img src="/images/products1_m.png" alt="제품별이미지" />
           <h3>제품별<span>Product</span></h3>
           <p>
             포스코는 포항과 광양에 6개의 열연 공장과 1개의 하이밀 공장을 갖추고
@@ -99,7 +95,7 @@
       </article>
       <article class="item_box">
         <a href="#none">
-          <img src="images/products1_m.png" alt="제품별이미지" />
+          <img src="/images/products1_m.png" alt="제품별이미지" />
           <h3>제품별<span>Product</span></h3>
           <p>
             포스코는 포항과 광양에 6개의 열연 공장과 1개의 하이밀 공장을 갖추고
