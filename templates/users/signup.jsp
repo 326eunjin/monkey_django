@@ -64,13 +64,13 @@
             	<!--<form method = "POST" action = ".">-->
                 {% csrf_token %} 
 				<div class="form-group"> 
-				<label for="username">사용자 이름</label>
+				<label for="username">이메일</label>
 			    <div class="d-flex">
     <input 
       type="text" 
       class="form-control" 
       id="username" 
-      placeholder="사용자 이름"
+      placeholder="username@email.com"
       name="username">   
       <!-- 이 name 값으로 정보가 전달된다 -->
 	  <button id="duplicationCheckButton" class="button btn-primary btn">중복확인</button>
@@ -390,11 +390,15 @@
 			let gender = $("input[name=gender]:checked").val();
 			let nationality = $("#nationality").val();
 
+			//빈칸 없도록 하기
 			let filled = false;
 
+			//빈칸 없으면 true
 			if(username != "" && password != "" && passwordCheck !="" && gender != "" && nationality != "" && passwordChecker == true){
 				filled = true;
 			}
+
+			//db로 넘기는 조건 : 빈칸없음 , id 중복 안됨
 			if(filled==true &&idChecker ==true){
 				
 				$.ajax({
@@ -414,9 +418,11 @@
 						alert("에러에러에러");
 					}
 				})
-			} else if(filled==true &&idChecker ==false){
+			} //빈칸은 없지만 id중복체크 안함 
+			else if(filled==true &&idChecker ==false){
 				alert("Email 중복확인을 해주세요.");
-			} else if (filled==false){
+			} //빈칸 있음
+			else if (filled==false){
 				alert("항목을 모두 채워주세요.");
 			}
 		})
