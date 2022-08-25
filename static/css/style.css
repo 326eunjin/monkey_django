@@ -27,7 +27,7 @@ body {
 }
 
 #header {
-  background: #404d84;
+  background: #222;
   position: fixed;
   width: 100%;
   z-index: 9999;
@@ -39,7 +39,7 @@ body {
 }
 
 #header .m_logo {
-  background: #404d84;
+  background: #222;
   width: 1200px;
   height: 110px;
   margin: 0 auto;
@@ -116,9 +116,9 @@ h1 a {
 
 #mv {
   height: 770px;
-  width : 1200px;
+  width: 1200px;
   overflow: hidden;
-  background-image : url("/Users/jiwon/monkey_django/static/css/images/main_image.png")
+  background-image: url("/Users/jiwon/monkey_django/static/css/images/main_image.png");
 }
 
 #mv img {
