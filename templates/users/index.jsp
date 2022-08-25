@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 {% load static %}
+<!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
@@ -8,10 +8,27 @@
       src="https://kit.fontawesome.com/7d891d878a.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="   crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
@@ -49,15 +66,6 @@
             </ul>
           </div>
         </div>
-          <ul class="snb">
-            <li>
-              <a href="#none">ENG</a>
-            </li>
-            <li>
-              <a href="#none">KOR</a>
-            </li>
-          </ul>
-        </div>
         <div class="m_nav">
           <nav>
             <ul>
@@ -80,8 +88,7 @@
     </header>
 
     <section id="mv">
-      <img src="images/main_image.png" />
-
+      <img src="{% static 'css/images/main_image.png' %}" />
       <div class="main_text">
         <div class="text_box">
           <h3>원숭이두창</h3>
@@ -104,9 +111,10 @@
         <address>
           Monkey Magic
           <br />
-          / BE 소프트웨어학부 장은진 글로벌미디어학부 20182764 황지원 / PM 글로벌미디어학부 20182728 이동호 / AI 글로벌미디어학부 2019 방지훈 /  FE 글로벌미디어학부 2021 김혜령
-          TEL : 010.5112.1400 Copyright (c) 2022 SW. ALL
-          ALL RIGHTS RESERVED
+          / BE 소프트웨어학부 장은진 글로벌미디어학부 20182764 황지원 / PM
+          글로벌미디어학부 20182728 이동호 / AI 글로벌미디어학부 2019 방지훈 /
+          FE 글로벌미디어학부 2021 김혜령 TEL : 010.5112.1400 Copyright (c) 2022
+          SW. ALL ALL RIGHTS RESERVED
         </address>
       </div>
     </footer>
