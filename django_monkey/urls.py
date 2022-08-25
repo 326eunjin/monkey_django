@@ -1,3 +1,6 @@
+from django.conf.urls.static import static
+from django.conf import settings
+
 """django_monkey URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -17,8 +20,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from users.views import home
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('', home)
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
