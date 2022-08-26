@@ -21,10 +21,6 @@ from django.urls import path
 from django.conf.urls import include
 from users.views import home
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 3dddba8c5321321b8c2b8a4feb21ca039f2acbac
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),

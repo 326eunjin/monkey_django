@@ -62,7 +62,6 @@ class User(models.Model):
     lymphedema = models.IntegerField(blank=True, null=True)
     lethargy = models.IntegerField(blank=True, null=True)
     diagnosed = models.IntegerField(blank=True, null=True)
-    image_title = models.CharField(max_length=200, blank=True, null=True)
     image = models.ImageField(upload_to="images/")
 
     class Meta:
