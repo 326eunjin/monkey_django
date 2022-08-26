@@ -106,7 +106,7 @@
         </div>
       </div>
     </section>
-    <footer>
+    <footer id="ft">
       <div class="foot_box">
         <address>
           Monkey Magic
