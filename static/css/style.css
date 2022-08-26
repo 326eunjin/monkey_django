@@ -10,9 +10,10 @@ li {
   list-style: none;
 }
 a {
-  text-decoration: none;
   color: #e1e1e1;
+  text-decoration: none;
 }
+
 .blind {
   position: absolute;
   font-size: 0;
@@ -84,7 +85,7 @@ body {
 }
 
 #header .snb li a {
-  border: 1px solid #e1e1e1;
+  /* border: 1px solid #e1e1e1; */
   width: 50px;
   height: 25px;
   line-height: 23px;
@@ -113,6 +114,8 @@ body {
 
 #header .login li a {
   color: #e1e1e1;
+  font-size: 15px;
+  text-decoration: none;
 }
 
 #header .login .imgg {
@@ -125,20 +128,24 @@ body {
 }
 
 #header .sub .search {
-  width: 100%;
+  width: 96%;
   height: 30px;
   float: left;
-  margin-top: 12px;
+  margin-top: 10px;
+  margin-left: 2%;
   border: 1px solid #e1e1e1;
   border-radius: 8px;
   overflow: hidden;
+  text-align: center;
 }
 
 #header .search input {
-  width: 79%;
+  width: 80%;
+  height: 100%;
   background: #222;
-  font-size: 12px;
+  font-size: 14px;
   padding: 2px;
+  padding-left: 10px;
   border: 0px;
   outline: none;
   float: left;
@@ -147,41 +154,49 @@ body {
 
 #header .search button {
   width: 20%;
+  height: 100%;
+  line-height: 30px;
   background-color: #e1e1e1;
-  color: #222;
-  border: 0;
   outline: 0;
-  float: left;
+  border: 0;
+  float: right;
+  font-size: 15px;
 }
 
 #header .m_nav {
   width: 100%;
-  height: 60px;
+  height: 53px;
   background-color: #111;
   box-shadow: 0 5px 5px rgba(46, 46, 46, 0.3);
 }
 
 #header nav {
-  line-height: 60px;
+  width: 80%;
+  line-height: 53px;
   margin: 0 auto;
 }
 
-#header nav ul li {
-  float: left;
-  padding-left: 240px;
+#header nav ul {
+  text-align: center;
 }
 
-#header nav ul li:first-child {
-  padding-left: 240x;
+#header nav ul li {
+  width: 25%;
+  float: left;
 }
 
 #header nav ul li a {
   color: white;
+  text-decoration: none;
+  font-size: 15.5px;
+  letter-spacing: 0.5px;
+  margin: 0 auto;
 }
 
 #mv {
   height: 770px;
-  width: 1200px;
+  width: 100%;
+  background: #f4f4f4;
   overflow: hidden;
 }
 
@@ -202,15 +217,15 @@ body {
   top: 250px;
   right: 10px;
   z-index: 10;
-  line-height: 3 50px;
 }
 
 #mv .main_text .text_box {
-  line-height: 50px;
+  line-height: 350px;
   padding: 30px;
+  margin-top: 5px;
 }
 
-#mv .main_text h3 {
+#mv .text_box h3 {
   color: #fff;
   font-size: 45px;
   font-weight: bold;
@@ -218,28 +233,43 @@ body {
   text-align: left;
 }
 
-#mv .main_text p {
+#mv .text_box p {
   color: #fff;
   font-size: 16px;
   line-height: 23px;
   text-align: left;
 }
 
+#mv .text_box .start {
+  background: rgba(0, 0, 0, 0.7);
+  width: 160px;
+  height: 50px;
+  border-radius: 8px;
+  margin-top: 25px;
+  box-shadow: 0 5px 5px rgba(46, 46, 46, 0.3);
+}
+g #mv .start p {
+  text-align: center;
+}
+
+#mv .start a {
+  color: #fff;
+  font-size: 18px;
+  line-height: 50px;
+  text-decoration: none;
+}
+
+#mv .start a:hover {
+  color: rgb(232, 220, 125);
+  text-decoration: none;
+}
+
 .foot_box {
-  float: left;
-  margin-left: 50px;
+  text-align: center;
 }
-.foot_box ul {
-  overflow: hidden;
-}
-.foot_box ul li {
-  float: left;
-  padding-right: 17px;
-}
-.foot_box ul li a {
-  font-weight: bold;
-}
+
 .foot_box address {
-  font-style: normal;
-  margin-top: 5px;
+  font-size: 11px;
+  color: #555;
+  margin-top: 50px;
 }

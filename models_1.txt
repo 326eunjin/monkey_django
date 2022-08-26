@@ -129,6 +129,16 @@ class User(models.Model):
     nationality = models.CharField(max_length=45)
     createdat = models.DateTimeField(db_column='createdAt', blank=True, null=True)  # Field name made lowercase.
     updatedat = models.DateTimeField(db_column='updatedAt', blank=True, null=True)  # Field name made lowercase.
+    rash = models.IntegerField(blank=True, null=True)
+    fever = models.IntegerField(blank=True, null=True)
+    headache = models.IntegerField(blank=True, null=True)
+    backpain = models.IntegerField(blank=True, null=True)
+    musclepain = models.IntegerField(blank=True, null=True)
+    lymphedema = models.IntegerField(blank=True, null=True)
+    lethargy = models.IntegerField(blank=True, null=True)
+    diagnosed = models.IntegerField(blank=True, null=True)
+    image_title = models.CharField(max_length=200, blank=True, null=True)
+    image = models.CharField(max_length=200, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -136,7 +146,6 @@ class User(models.Model):
 
 
 class Usermedicalinfo(models.Model):
-    userid = models.OneToOneField(User, models.DO_NOTHING, db_column='userID', primary_key=True)  # Field name made lowercase.
     rash = models.IntegerField()
     fever = models.IntegerField()
     headache = models.IntegerField()
