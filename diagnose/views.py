@@ -15,19 +15,21 @@ def home_view(request):
         form = ImagefieldForm(request.POST, request.FILES)
         if form.is_valid():
             img = form.cleaned_data.get("image_field")
-            now = time.strftime('%Y-%m-%d %H:%M:%S')
+            # now = time.strftime('%Y-%m-%d %H:%M:%S')
             obj = User.objects.get(mail=mail)
-            obj.delete()
-            obj1 = User.objects.create(
-                image=img,
-                mail=obj.mail,
-                userpw=obj.userpw,
-                gender=obj.gender,
-                nationality=obj.nationality,
-                createdat=now,
-                updatedat=now
-            )
-            obj1.save()
+            # obj.delete()
+            # obj1 = User.objects.create(
+            #     image=img,
+            #     mail=obj.mail,
+            #     userpw=obj.userpw,
+            #     gender=obj.gender,
+            #     nationality=obj.nationality,
+            #     createdat=now,
+            #     updatedat=now
+            # )
+            # obj1.save()
+            obj.image = img
+            obj.save()
             return redirect('/')  # 사진 올린 후 경로!
     else:
         form = ImagefieldForm()
