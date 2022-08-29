@@ -50,10 +50,10 @@
             </ul>
             <ul class="login">
               <li>
-                <a id="logoutButton" href="/users/login/view">로그아웃</a>
+                <a href="#none">로그인</a>
               </li>
               <li>
-                <a href="#none">마이페이지</a>
+                <a href="#none">회원가입</a>
               </li>
               <li>
                 <a href="#none" class="imgg"></a>
@@ -119,12 +119,5 @@
         </address>
       </div>
     </footer>
-    <script>
-      $(docuemt).ready(function(){
-        $("#logoutButton").on("click", function(){
-          location.href = '/users/logout/'
-        })
-      })
-    </script>
   </body>
 </html>

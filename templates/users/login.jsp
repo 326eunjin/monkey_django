@@ -37,36 +37,6 @@
 	font-weight: bold;
 	}
 	</style>
-	<script>
-		function getCookie(name) {
-			var cookieValue = null;
-			if (document.cookie && document.cookie !== '') {
-				var cookies = document.cookie.split(';');
-				for (var i = 0; i < cookies.length; i++) {
-					var cookie = cookies[i].trim();
-					// Does this cookie string begin with the name we want?
-					if (cookie.substring(0, name.length + 1) === (name + '=')) {
-						cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-						break;
-					}
-				}
-			}
-			return cookieValue;
-		}
-		var csrftoken = getCookie('csrftoken');
-	  
-		function csrfSafeMethod(method) {
-			// these HTTP methods do not require CSRF protection
-			return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-		}
-		$.ajaxSetup({
-			beforeSend: function(xhr, settings) {
-				if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-					xhr.setRequestHeader("X-CSRFToken", csrftoken);
-				}
-			}
-		});
-	  </script>
 </head>
 <body>
 <div class="container">
@@ -76,48 +46,23 @@
 	{{ error }}
 	</div>
 	</div>
+	<form method="post" action=".">
 	{% csrf_token %}
 	<h2 class="text-center">로그인</h2>
 	<div class="form-group">
-	<input type="text" name="mail" id="mail" class="form-control" placeholder="mail"
+	<input type="text" name="mail" class="form-control" placeholder="mail"
 	 required="required">
 	</div>
 	<div class="form-group">
-	<input type="password" name="userpw" id="userpw" class="form-control" placeholder="Password"
+	<input type="password" name="userpw" class="form-control" placeholder="Password"
 	 required="required">
 	</div>
 	<div class="form-group">
-	<button id="loginButton" class="btn btn-primary btn-block">로그인</button>
+	<button type="submit" class="btn btn-primary btn-block">로그인</button>
 	</div>
+	</form>
 	<p class="text-center"><a href="/users/signup/view/" id="register">회원 가입</a></p>
 	</div>
 </div>
-	<script>
-		$(document).ready(function(){
-			$("#loginButton").on("click", function(){
-				$.ajax({
-					type : "POST"
-					, url : "/users/login/view/"
-					, data : {
-						"mail" : $("#mail").val()
-						, "userpw" : $("#userpw").val()
-					}
-					, success : function(data){
-						if(data.result == 'loginSuccess')
-						{
-							location.href = '/'
-						} else if (data.result == 'loginFailed'){
-							alert('비밀번호를 확인해주세요')
-						} else if (data.result == 'noUser'){
-							alert('계정을 확인해주세요')
-						}
-					}
-					, error : function(){
-						alert("에러")
-					}
-				})
-			})
-		})
-	</script>
 </body>
 </html>
