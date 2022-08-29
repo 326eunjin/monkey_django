@@ -53,7 +53,7 @@
                 <a id="logoutButton" href="/users/login/view">로그아웃</a>
               </li>
               <li>
-                <a href="#none">마이페이지</a>
+                <a href="#none" class="text-white">{{request.session.mail}}</a>
               </li>
               <li>
                 <a href="#none" class="imgg"></a>
@@ -73,7 +73,7 @@
                 <a href="#none">원숭이두창</a>
               </li>
               <li>
-                <a href="#none">검사</a>
+                <a href="/diagnose/input/">검사</a>
               </li>
               <li>
                 <a href="#none">원숭이두창맵</a>

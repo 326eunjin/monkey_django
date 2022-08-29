@@ -3,11 +3,11 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import ImagefieldForm
 from users.models import User
-import time
-import datetime
+import pickle
+
 # Create your views here.
 
-
+    
 def home_view(request):
     context = {}
     mail = request.session['user']
@@ -31,7 +31,7 @@ def home_view(request):
             obj.image = img
             obj.save()
             return redirect('/')  # 사진 올린 후 경로!
-    else:
+    else :
         form = ImagefieldForm()
         context['form'] = form
         return render(request, "diagnose/upload_file.jsp", context)

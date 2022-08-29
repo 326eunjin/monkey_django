@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
+    'diagnose'
 ]
 
 MIDDLEWARE = [
@@ -71,6 +72,11 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+)
+
 
 WSGI_APPLICATION = 'django_monkey.wsgi.application'
 
@@ -151,3 +157,5 @@ STATIC_URL = '/django_monkey/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+

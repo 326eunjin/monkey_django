@@ -51,7 +51,7 @@ def loginRequest(request):
         try:
             user = User.objects.get(mail=mail)
             if check_password(userpw, user.userpw):
-                request.session['user'] = user.mail
+                request.session['mail'] = user.mail
                 request.session['id'] = user.id
                 res_data['result'] = "loginSuccess"
                 return JsonResponse(res_data)
@@ -63,6 +63,7 @@ def loginRequest(request):
         return JsonResponse(res_data)
 
 def home(request):
+    user = request.session.get('user')
     return render(request, 'users/index.jsp')
     # user_pk = request.session.get('user')
     # if user_pk:
