@@ -47,17 +47,20 @@ def login(request):
     elif request.method == 'POST':
         mail = request.POST.get('mail', None)
         userpw = request.POST.get('userpw', None)
-    res_data = {}
-    if not (mail and userpw):
-        res_data['error'] = "모든 칸을 다 입력해주세요"
-    else:
-        user = User.objects.get(mail=mail)
-        if check_password(userpw, user.userpw):
-            request.session['user'] = user.mail
-            return redirect('/')
-        else:
-            res_data['error'] = "비밀번호가 틀렸습니다."
-    return render(request, 'users/login_error.jsp', res_data)
+        res_data = {}
+        try:
+            user = User.objects.get(mail=mail)
+            if check_password(userpw, user.userpw):
+                request.session['user'] = user.mail
+                request.session['id'] = user.id
+                res_data['result'] = "loginSuccess"
+                return res_data
+            else :
+                res_data['result'] = "loginFailed"
+                return res_data
+        except User.DoesNotExist:
+            res_data['result'] = "noUser"
+        return res_data
 
 
 def home(request):
