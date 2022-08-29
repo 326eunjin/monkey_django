@@ -41,10 +41,10 @@ def signup(request):
             return JsonResponse(res_data)
         return render(request, 'users/login.jsp', res_data)
 
-def login(request):
-    if request.method == 'GET':
-        return render(request, 'users/login.jsp')
-    elif request.method == 'POST':
+def loginView(request):
+    return render(request, 'users/login.jsp')
+
+def loginRequest(request):
         mail = request.POST.get('mail', None)
         userpw = request.POST.get('userpw', None)
         res_data = {}
@@ -54,14 +54,13 @@ def login(request):
                 request.session['user'] = user.mail
                 request.session['id'] = user.id
                 res_data['result'] = "loginSuccess"
-                return res_data
+                return JsonResponse(res_data)
             else :
                 res_data['result'] = "loginFailed"
-                return res_data
+                return JsonResponse(res_data)
         except User.DoesNotExist:
             res_data['result'] = "noUser"
-        return res_data
-
+        return JsonResponse(res_data)
 
 def home(request):
     return render(request, 'users/index.jsp')

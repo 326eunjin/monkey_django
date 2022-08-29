@@ -79,7 +79,7 @@
 	{% csrf_token %}
 	<h2 class="text-center">로그인</h2>
 	<div class="form-group">
-	<input type="text" name="mail" id="mail" class="form-control" placeholder="mail"
+	<input type="text" name="mail" id="mail" class="form-control" placeholder="user@email.com"
 	 required="required">
 	</div>
 	<div class="form-group">
@@ -97,7 +97,7 @@
 			$("#loginButton").on("click", function(){
 				$.ajax({
 					type : "POST"
-					, url : "/users/login/view/"
+					, url : "/users/login/"
 					, data : {
 						"mail" : $("#mail").val()
 						, "userpw" : $("#userpw").val()
@@ -105,11 +105,13 @@
 					, success : function(data){
 						if(data.result == 'loginSuccess')
 						{
-							location.href = '/'
-						} else if (data.result == 'loginFailed'){
+							location.href = "/"
+						} else if (data.result== 'loginFailed'){
 							alert('비밀번호를 확인해주세요')
 						} else if (data.result == 'noUser'){
 							alert('계정을 확인해주세요')
+						} else if (data.result == ''){
+							alert('안되네')
 						}
 					}
 					, error : function(){
