@@ -6,6 +6,11 @@ from users.models import User
 import pickle
 
 # Create your views here.
+def predict(request):
+    userId = request.session.get('id')
+    user = User.objects.get(id=userId)
+    image = user.image
+    return HttpResponse(image)
 
     
 def home_view(request):
@@ -30,7 +35,7 @@ def home_view(request):
             # obj1.save()
             obj.image = img
             obj.save()
-            return redirect('/')  # 사진 올린 후 경로!
+            return redirect('/diagnose/predict/')  # 사진 올린 후 경로!
     else :
         form = ImagefieldForm()
         context['form'] = form

@@ -53,6 +53,7 @@ def loginRequest(request):
             if check_password(userpw, user.userpw):
                 request.session['mail'] = user.mail
                 request.session['id'] = user.id
+                request.session['gender'] = user.gender
                 res_data['result'] = "loginSuccess"
                 return JsonResponse(res_data)
             else :
@@ -89,5 +90,9 @@ def idcheck(request):
         except User.DoesNotExist: 
             res_data['result'] = 'CHECK COMPLETED'
             return JsonResponse(res_data)
+
+def myPage(request):
+    user = request.session.get('user')
+    return render(request, 'users/mypage.jsp')
 
         

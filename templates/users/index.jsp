@@ -56,7 +56,7 @@
                 <a href="#none" class="text-white">{{request.session.mail}}</a>
               </li>
               <li>
-                <a href="#none" class="imgg"></a>
+                <a href="/users/mypage/view/" class="imgg"></a>
                 <span class="blind">my</span>
               </li>
             </ul>
@@ -101,7 +101,7 @@
             활용해주시길 바랍니다.)
           </p>
           <div class="start">
-            <p><a href="#none">검사 시작</a></p>
+            <p><a href="/diagnose/input/">검사 시작</a></p>
           </div>
         </div>
       </div>
