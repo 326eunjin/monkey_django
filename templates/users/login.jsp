@@ -110,8 +110,6 @@
 							alert('비밀번호를 확인해주세요')
 						} else if (data.result == 'noUser'){
 							alert('계정을 확인해주세요')
-						} else if (data.result == ''){
-							alert('안되네')
 						}
 					}
 					, error : function(){

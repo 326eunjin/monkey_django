@@ -49,12 +49,16 @@
               </li>
             </ul>
             <ul class="login">
+              {% if request.session.loggedin %}
               <li>
                 <a id="logoutButton" href="/users/login/view">로그아웃</a>
               </li>
               <li>
                 <a href="#none" class="text-white">{{request.session.mail}}</a>
               </li>
+              {% else %}
+              <li><a href="/users/login/view/">로그인</a></li>
+              {% endif %}
               <li>
                 <a href="/users/mypage/view/" class="imgg"></a>
                 <span class="blind">my</span>

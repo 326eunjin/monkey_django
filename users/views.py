@@ -54,6 +54,7 @@ def loginRequest(request):
                 request.session['mail'] = user.mail
                 request.session['id'] = user.id
                 request.session['gender'] = user.gender
+                request.session['loggedin'] = True
                 res_data['result'] = "loginSuccess"
                 return JsonResponse(res_data)
             else :
@@ -76,7 +77,6 @@ def home(request):
 def logout(request):
     if request.session['user']:  # 로그인중이라면
         del(request.session['user'])
-        print("hi")
     return redirect('/')  # 홈화면으로 이동
 
 def idcheck(request):

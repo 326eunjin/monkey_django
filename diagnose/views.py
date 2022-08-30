@@ -7,15 +7,20 @@ import pickle
 
 # Create your views here.
 def predict(request):
-    userId = request.session.get('id')
-    user = User.objects.get(id=userId)
-    image = user.image
-    return HttpResponse(image)
+    userId = request.session['id']
+    image = User.objects.get(id=userId)
+    res_data = {'image', image}
+    return res_data
+
+def showPredict(request):
+    return render(request, 'diagnose/showimage.jsp')
+
+
 
     
 def home_view(request):
     context = {}
-    mail = request.session['user']
+    mail = request.session['mail']
     if request.method == "POST":
         form = ImagefieldForm(request.POST, request.FILES)
         if form.is_valid():
