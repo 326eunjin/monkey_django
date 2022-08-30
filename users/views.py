@@ -75,8 +75,12 @@ def home(request):
 
 
 def logout(request):
-    if request.session['user']:  # 로그인중이라면
-        del(request.session['user'])
+    if request.session['loggedin']:  # 로그인중이라면
+        del(request.session['loggedin'])
+        del(request.session['id'])
+        del(request.session['mail'])
+        del(request.session['gender'])
+
     return redirect('/')  # 홈화면으로 이동
 
 def idcheck(request):

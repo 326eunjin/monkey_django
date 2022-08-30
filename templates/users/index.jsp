@@ -51,7 +51,7 @@
             <ul class="login">
               {% if request.session.loggedin %}
               <li>
-                <a id="logoutButton" href="/users/login/view">로그아웃</a>
+                <a id="logoutButton" href="/users/logout/">로그아웃</a>
               </li>
               <li>
                 <a href="#none" class="text-white">{{request.session.mail}}</a>
@@ -123,12 +123,5 @@
         </address>
       </div>
     </footer>
-    <script>
-      $(docuemt).ready(function(){
-        $("#logoutButton").on("click", function(){
-          location.href = '/users/logout/'
-        })
-      })
-    </script>
   </body>
 </html>
