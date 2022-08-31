@@ -106,7 +106,7 @@
         <div class="text_box">
           <h3>Monkey Pox</h3>
           <p>
-            This examination is for detecting whether your rash coult be a symptom of monkey pox by using an AI model.
+            This examination is for detecting whether your rash could be a symptom of monkey pox by using an AI model.
             <br />
             <br />
             (This test is not an official diagnosis by a doctor. Please use it only as a guide.) 
