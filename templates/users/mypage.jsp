@@ -49,7 +49,11 @@
                 </tr>
                 <tr>
                     <td>{{request.session.mail}}</td>
-                    <td>{{request.session.gender}}</td>
+					{%if request.session.gender == 0%}
+                    <td>male</td>
+					{%else%}
+					<td>female</td>
+					{%endif%}
                 </tr>
             </table>
             <a href="/">돌아가기</a>
