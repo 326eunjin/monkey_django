@@ -57,7 +57,7 @@
                   var loginStatus = true
                 </script>
                 <li>
-                  <a id="logoutButton" href="#">로그아웃</a>
+                  <a id="logoutButton" href="#">Log out</a>
                 </li>
                 <li>
                   <a href="/users/mypage/view/" class="text-white">{{user.mail}}</a>
@@ -70,7 +70,7 @@
                 <script>
                   loginStatus = false
                 </script>
-                <li><a href="/users/login/view/">로그인</a></li>
+                <li><a href="/users/login/view/">Log in</a></li>
                 {% endif %}
               </ul>
             <ul class="search">
