@@ -38,10 +38,10 @@
       <div class="h_inner">
         <div class="m_logo">
           <h1 class="tit_h1">
-            <a href="#header"></a>
+            <a href="/"></a>
             <span class="blind">monky</span>
           </h1>
-          <h2>Monkey Magic</h2>
+          <h2><a href="/">Monkey Magic</a></h2>
           <div class="sub">
             <ul class="snb d-flex">
               <li>
@@ -54,13 +54,13 @@
             <ul class="login">
               {% if request.session.loggedin %}
               <li>
-                <a id="logoutButton" href="/users/logout/">로그아웃</a>
+                <a id="logoutButton" href="/users/logout/">Log out</a>
               </li>
               <li>
                 <a href="/users/mypage/view/" class="text-white">{{request.session.mail}}</a>
               </li>
               {% else %}
-              <li><a href="/users/login/view/">로그인</a></li>
+              <li><a href="/users/login/view/">Log in</a></li>
               {% endif %}
               <li>
                 <a href="/users/mypage/view/" class="imgg"></a>
@@ -69,7 +69,7 @@
             </ul>
             <ul class="search">
               <input type="text" placeholder="Search" />
-              <button>검색</button>
+              <button>Search</button>
             </ul>
           </div>
         </div>
@@ -77,16 +77,16 @@
           <nav>
             <ul>
               <li>
-                <a href="#none">원숭이두창</a>
+                <a href="#none">About MonkeyPox</a>
               </li>
               <li>
-                <a href="/diagnose/input/">검사</a>
+                <a href="/diagnose/input/">Examine</a>
               </li>
               <li>
-                <a href="#none">원숭이두창맵</a>
+                <a href="#none">Map</a>
               </li>
               <li>
-                <a href="#none">기타</a>
+                <a href="#none">Etc</a>
               </li>
             </ul>
           </nav>
@@ -98,17 +98,15 @@
       <img src="{% static 'css/images/main_image.png' %}" />
       <div class="main_text">
         <div class="text_box">
-          <h3>원숭이두창</h3>
+          <h3>Monkey Pox</h3>
           <p>
-            AI 모델을 활용해, 피부에 있는 발진이 원숭이 두창에 의한 증상인지에
-            대해 판별하는 검사입니다.
+            This examination is for detecting whether your rash coult be a symptom of monkey pox by using an AI model.
             <br />
             <br />
-            (본 검사는 AI 모델을 활용한 검사이니, 하나의 판단 근거 지표로
-            활용해주시길 바랍니다.)
+            (This test is not an official diagnosis by a doctor. Please use it only as a guide.) 
           </p>
           <div class="start">
-            <p><a href="/diagnose/input/">검사 시작</a></p>
+            <p><a href="/diagnose/input/">Start exmaination</a></p>
           </div>
         </div>
       </div>
@@ -118,11 +116,11 @@
         <address>
           Monkey Magic
           <br />
-          BE 소프트웨어학부 장은진 글로벌미디어학부 20182764 황지원 / PM
-          글로벌미디어학부 20182728 이동호 / AI 글로벌미디어학부 20192684 방지훈 /
-          FE 글로벌미디어학부 2021 김혜령
+          [BE] School of Software, Eunjin Jang. Global School of Media, Jiwon Hwang / [PM]
+          Global School of Media, Dongho Lee / [AI] Global School of Media, Jihoon Bang /
+          [FE] Global School of Media Hyeryeong Kim
           <br />
-          TEL : 010.5112.1400 Copyright (c) 2022 SW. ALL ALL RIGHTS RESERVED
+          TEL : +82)010.5112.1400 Copyright (c) 2022 SW. ALL ALL RIGHTS RESERVED
         </address>
       </div>
     </footer>

@@ -11,5 +11,6 @@ urlpatterns = [
     path('login/', users.views.loginRequest, name ='loginRequest'),
     path('logout/', users.views.logout, name='logout'),
     path('signup/idcheck/', users.views.idcheck, name='check'),
-    path('mypage/view/', users.views.myPage, name='myPage')
+    path('mypage/view/', users.views.myPage, name='myPage'),
+    path('english/view/', users.views.english)
 ]

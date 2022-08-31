@@ -99,4 +99,7 @@ def myPage(request):
     user = request.session.get('user')
     return render(request, 'users/mypage.jsp')
 
+def english(request):
+    return render(request, 'users/index_english.jsp')
+
         
