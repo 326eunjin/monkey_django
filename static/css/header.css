@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Nanum+Myeongjo:wght@400;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ol,
+ul,
+li {
+  list-style: none;
+}
+a {
+  color: #e1e1e1;
+  text-decoration: none;
+}
+
+.blind {
+  position: absolute;
+  font-size: 0;
+  left: -9999px;
+}
+button {
+  border: none;
+  background: none;
+}
+body {
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+#header {
+  background: #222;
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+}
+
+#header .h_inner {
+  width: 100%;
+  height: 105px;
+}
+
+#header .m_logo {
+  background: #222;
+  width: 1200px;
+  height: 110px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+#header .m_logo .tit_h1 {
+  margin: 25px 0 0 0;
+  float: left;
+}
+
+.tit_h1 a {
+  width: 110px;
+  height: 74px;
+  background: url("images/monkey_logo.png") no-repeat;
+  display: block;
+  background-size: cover;
+}
+
+#header .m_logo h2 {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 3px;
+  left: 1px;
+  margin-left: 108px;
+}
+
+#header .sub {
+  float: right;
+  width: 23%;
+  overflow: hidden;
+  margin-right: 15px;
+}
+
+#header .sub .snb {
+  width: 45%;
+  float: left;
+  margin: 35px 0 0 0;
+}
+
+#header .snb li a {
+  /* border: 1px solid #e1e1e1; */
+  width: 50px;
+  height: 25px;
+  line-height: 23px;
+  color: #e1e1e1;
+  display: block;
+  text-align: center;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#header .sub .login {
+  width: 55%;
+  float: right;
+  overflow: hidden;
+  margin: 35px 0 0 0;
+}
+
+#header .login li {
+  float: left;
+  margin-left: 10px;
+}
+
+#header .login li:first-child {
+  margin-left: 0;
+}
+
+#header .login li a {
+  color: #e1e1e1;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+#header .login .imgg {
+  background: url("images/mypage_back.png") no-repeat;
+  width: 22px;
+  height: 22px;
+  display: block;
+  background-size: cover;
+  margin: 2px 0 0 2px;
+}
+
+#header .sub .search {
+  width: 96%;
+  height: 30px;
+  float: left;
+  margin-top: 10px;
+  margin-left: 2%;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+}
+
+#header .search input {
+  width: 80%;
+  height: 100%;
+  background: #222;
+  font-size: 14px;
+  padding: 2px;
+  padding-left: 10px;
+  border: 0px;
+  outline: none;
+  float: left;
+  color: #e1e1e1;
+}
+
+#header .search button {
+  width: 20%;
+  height: 100%;
+  line-height: 30px;
+  background-color: #e1e1e1;
+  outline: 0;
+  border: 0;
+  float: right;
+  font-size: 15px;
+}
+
+#header .m_nav {
+  width: 100%;
+  height: 53px;
+  background-color: #111;
+  box-shadow: 0 5px 5px rgba(46, 46, 46, 0.3);
+}
+
+#header nav {
+  width: 80%;
+  line-height: 53px;
+  margin: 0 auto;
+}
+
+#header nav ul {
+  text-align: center;
+}
+
+#header nav ul li {
+  width: 25%;
+  float: left;
+}
+
+#header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 15.5px;
+  letter-spacing: 0.5px;
+  margin: 0 auto;
+}

@@ -70,7 +70,7 @@
           <nav>
             <ul>
               <li>
-                <a href="#none">원숭이두창</a>
+                <a href="#mv">원숭이두창</a>
               </li>
               <li>
                 <a href="#none">검사</a>
