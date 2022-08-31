@@ -48,8 +48,8 @@
                     <th>Gender :</th>
                 </tr>
                 <tr>
-                    <td>{{request.session.mail}}</td>
-					{%if request.session.gender == 0%}
+                    <td>{{user.mail}}</td>
+					{%if user.gender == 0%}
                     <td>male</td>
 					{%else%}
 					<td>female</td>

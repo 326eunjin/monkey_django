@@ -106,6 +106,7 @@
 						if(data.result == 'loginSuccess')
 						{
 							location.href = "/"
+							window.sessionStorage.setItem("loggedin", true)
 						} else if (data.result== 'loginFailed'){
 							alert('비밀번호를 확인해주세요')
 						} else if (data.result == 'noUser'){

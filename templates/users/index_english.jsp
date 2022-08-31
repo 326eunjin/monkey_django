@@ -41,7 +41,7 @@
             <a href="/"></a>
             <span class="blind">monky</span>
           </h1>
-          <h2><a href="/">Monkey Magic</a></h2>
+          <a href="/"><h2>Monkey Magic</h2></a>
           <div class="sub">
             <ul class="snb d-flex">
               <li>
@@ -52,21 +52,27 @@
               </li>
             </ul>
             <ul class="login">
-              {% if request.session.loggedin %}
-              <li>
-                <a id="logoutButton" href="/users/logout/">Log out</a>
-              </li>
-              <li>
-                <a href="/users/mypage/view/" class="text-white">{{request.session.mail}}</a>
-              </li>
-              {% else %}
-              <li><a href="/users/login/view/">Log in</a></li>
-              {% endif %}
-              <li>
-                <a href="/users/mypage/view/" class="imgg"></a>
-                <span class="blind">my</span>
-              </li>
-            </ul>
+                {% if request.session.loggedin %}
+                <script>
+                  var loginStatus = true
+                </script>
+                <li>
+                  <a id="logoutButton" href="#">로그아웃</a>
+                </li>
+                <li>
+                  <a href="/users/mypage/view/" class="text-white">{{user.mail}}</a>
+                </li>
+                <li>
+                  <a href="/users/mypage/view/" class="imgg"></a>
+                  <span class="blind">my</span>
+                </li>
+                {% else %}
+                <script>
+                  loginStatus = false
+                </script>
+                <li><a href="/users/login/view/">로그인</a></li>
+                {% endif %}
+              </ul>
             <ul class="search">
               <input type="text" placeholder="Search" />
               <button>Search</button>
@@ -80,7 +86,7 @@
                 <a href="#none">About MonkeyPox</a>
               </li>
               <li>
-                <a href="/diagnose/input/">Examine</a>
+                <a name="examineButton" href="#">Examine</a>
               </li>
               <li>
                 <a href="#none">Map</a>
@@ -106,7 +112,7 @@
             (This test is not an official diagnosis by a doctor. Please use it only as a guide.) 
           </p>
           <div class="start">
-            <p><a href="/diagnose/input/">Start exmaination</a></p>
+            <p><a href="#" name="examineButton">Start exmaination</a></p>
           </div>
         </div>
       </div>
@@ -124,5 +130,17 @@
         </address>
       </div>
     </footer>
+    <script>
+      $(document).ready(function(){
+        $('a[name=examineButton]').on("click", function(){
+          if(loginStatus==true){
+            location.href = "/diagnose/input/";
+          } else{
+            alert("login needed");
+            location.href = "/users/login/view/";
+          }
+        })
+      })
+    </script>
   </body>
 </html>

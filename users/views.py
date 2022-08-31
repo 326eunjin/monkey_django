@@ -36,7 +36,6 @@ def signup(request):
             )
             user.save()
             user = User.objects.get(mail=mailInput)
-            request.session['user'] = user.id
             res_data['status'] = '1'
             return JsonResponse(res_data)
         return render(request, 'users/login.jsp', res_data)
@@ -51,22 +50,28 @@ def loginRequest(request):
         try:
             user = User.objects.get(mail=mail)
             if check_password(userpw, user.userpw):
-                request.session['mail'] = user.mail
                 request.session['id'] = user.id
-                request.session['gender'] = user.gender
                 request.session['loggedin'] = True
                 res_data['result'] = "loginSuccess"
                 return JsonResponse(res_data)
             else :
                 res_data['result'] = "loginFailed"
+                request.session['loggedin'] = False
                 return JsonResponse(res_data)
         except User.DoesNotExist:
             res_data['result'] = "noUser"
         return JsonResponse(res_data)
 
 def home(request):
-    user = request.session.get('user')
-    return render(request, 'users/index.jsp')
+    try:
+        if(request.session['loggedin']):
+            user = User.objects.get(id=request.session.get('id'))
+            context = {"loggedin" : True, "user" : user}
+        else :
+            context = {"loggedin" : False}
+    except:
+        context = {"loggedin" : False}
+    return render(request, 'users/index.jsp', context)
     # user_pk = request.session.get('user')
     # if user_pk:
     #     user = User.objects.get(mail=user_pk)//로그인했으면 메일 주소가 나옴
@@ -74,13 +79,9 @@ def home(request):
     # return HttpResponse("login success")//로그인 안 했으면 이걸로 나옴
 
 
-def logout(request):
-    if request.session['loggedin']:  # 로그인중이라면
-        del(request.session['loggedin'])
-        del(request.session['id'])
-        del(request.session['mail'])
-        del(request.session['gender'])
-
+def logout(request):# 로그인중이라면
+    del(request.session['id'])
+    request.session['loggedin'] = False
     return redirect('/')  # 홈화면으로 이동
 
 def idcheck(request):
@@ -96,8 +97,9 @@ def idcheck(request):
             return JsonResponse(res_data)
 
 def myPage(request):
-    user = request.session.get('user')
-    return render(request, 'users/mypage.jsp')
+    user = User.objects.get(id=request.session.get('id'))
+    context = {"user" : user}
+    return render(request, 'users/mypage.jsp', context)
 
 def english(request):
     return render(request, 'users/index_english.jsp')

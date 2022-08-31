@@ -53,19 +53,27 @@
             </ul>
             <ul class="login">
               {% if request.session.loggedin %}
+              <script>
+                var loginStatus = true
+              </script>
               <li>
-                <a id="logoutButton" href="/users/logout/">로그아웃</a>
+                <a id="logoutButton" href="#">로그아웃</a>
+                <div id="loginStatus" class="d-none">true</div>
               </li>
               <li>
-                <a href="/users/mypage/view/" class="text-white">{{request.session.mail}}</a>
+                <a href="/users/mypage/view/" class="text-white">{{user.mail}}</a>
               </li>
-              {% else %}
-              <li><a href="/users/login/view/">로그인</a></li>
-              {% endif %}
               <li>
                 <a href="/users/mypage/view/" class="imgg"></a>
                 <span class="blind">my</span>
               </li>
+              {% else %}
+              <script>
+                loginStatus = false
+              </script>
+              <li><a href="/users/login/view/">로그인</a></li>
+              {% endif %}
+
             </ul>
             <ul class="search">
               <input type="text" placeholder="Search" />
@@ -80,7 +88,7 @@
                 <a href="#none">원숭이두창</a>
               </li>
               <li>
-                <a href="/diagnose/input/">검사</a>
+                <a href="#" name="examineButton">검사</a>
               </li>
               <li>
                 <a href="#none">원숭이두창맵</a>
@@ -108,7 +116,7 @@
             활용해주시길 바랍니다.)
           </p>
           <div class="start">
-            <p><a href="/diagnose/input/">검사 시작</a></p>
+            <p><a href="#" name="examineButton">검사 시작</a></p>
           </div>
         </div>
       </div>
@@ -126,5 +134,22 @@
         </address>
       </div>
     </footer>
+    <script>
+      $(document).ready(function(){
+        $('a[name=examineButton]').on("click", function(){
+          if(loginStatus==true){
+            location.href = "/diagnose/input/";
+          } else{
+            alert("로그인 해주세요.");
+            location.href = "/users/login/view/";
+          }
+        })
+        $("#logoutButton").on("click", function(){
+          window.sessionStorage.setItem("loggedin", false);
+          location.href = "/users/logout/"
+        })
+      })
+    </script>
+
   </body>
 </html>

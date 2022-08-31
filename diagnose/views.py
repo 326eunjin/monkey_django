@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from .forms import ImagefieldForm
 from users.models import User
 import pickle
+import time
 
 # Create your views here.
 def predict(request):
@@ -20,13 +21,14 @@ def showPredict(request):
     
 def home_view(request):
     context = {}
-    mail = request.session['mail']
     if request.method == "POST":
+        mail = request.session['mail']
         form = ImagefieldForm(request.POST, request.FILES)
         if form.is_valid():
             img = form.cleaned_data.get("image_field")
             # now = time.strftime('%Y-%m-%d %H:%M:%S')
             obj = User.objects.get(mail=mail)
+            obj.updatedAt = time.strftime('%Y-%m-%d %H:%M:%S') #업데이트 시간
             # obj.delete()
             # obj1 = User.objects.create(
             #     image=img,
