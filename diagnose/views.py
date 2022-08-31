@@ -22,13 +22,13 @@ def showPredict(request):
 def home_view(request):
     context = {}
     if request.method == "POST":
-        mail = request.session['mail']
+        id = request.session['id']
         form = ImagefieldForm(request.POST, request.FILES)
         if form.is_valid():
             img = form.cleaned_data.get("image_field")
             # now = time.strftime('%Y-%m-%d %H:%M:%S')
-            obj = User.objects.get(mail=mail)
-            obj.updatedAt = time.strftime('%Y-%m-%d %H:%M:%S') #업데이트 시간
+            obj = User.objects.get(id=id)
+            obj.updatedAt = time.strftime('%Y-%m-%d %H:%M:%S') #업데이트 시간 왜 안됨
             # obj.delete()
             # obj1 = User.objects.create(
             #     image=img,

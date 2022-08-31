@@ -52,21 +52,22 @@
               </li>
             </ul>
             <ul class="login">
-                {% if request.session.loggedin %}
-                <script>
-                  var loginStatus = true
-                </script>
-                <li>
-                  <a id="logoutButton" href="#">Log out</a>
-                </li>
-                <li>
-                  <a href="/users/mypage/view/" class="text-white">{{user.mail}}</a>
-                </li>
-                <li>
-                  <a href="/users/mypage/view/" class="imgg"></a>
-                  <span class="blind">my</span>
-                </li>
-                {% else %}
+              {% if request.session.loggedin %}
+              <script>
+                var loginStatus = true
+              </script>
+              <li>
+                <a id="logoutButton" href="#">Log out</a>
+                <div id="loginStatus" class="d-none">true</div>
+              </li>
+              <li>
+                <a href="/users/mypage/view/" class="text-white">{{user.mail}}</a>
+              </li>
+              <li>
+                <a href="/users/mypage/view/" class="imgg"></a>
+                <span class="blind">my</span>
+              </li>
+              {% else %}
                 <script>
                   loginStatus = false
                 </script>
