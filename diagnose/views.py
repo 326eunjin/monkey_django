@@ -13,10 +13,10 @@ def predict(request):
     return res_data
 
 def showPredict(request):
-    return render(request, 'diagnose/showimage.jsp')
-
-
-
+    userId = request.session['id']
+    user = User.objects.get(id=userId)
+    context = {'user' : user}
+    return render(request, 'diagnose/showimage.jsp', context)
     
 def home_view(request):
     context = {}
@@ -40,7 +40,7 @@ def home_view(request):
             # obj1.save()
             obj.image = img
             obj.save()
-            return redirect('/diagnose/predict/')  # 사진 올린 후 경로!
+            return redirect('/diagnose/predict/view')  # 사진 올린 후 경로!
     else :
         form = ImagefieldForm()
         context['form'] = form
