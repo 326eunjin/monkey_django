@@ -62,16 +62,19 @@ def model_activate(img_path,model_path):
 # Create your views here.
 
 def predict(request):
-    user = User.objects.get(id=request.session['id'])
+    try:
+        user = User.objects.get(id=request.session['id'])
     #result = model_activate('user.image', '모델경로')
-    result = model_activate('diagnose/image/20110504_024354329.jpeg','/Users/jiwon/monkey_django/diagnose/model/resnet(cpu)(18).pkl')
-    if(result > 80):
-        user.diagnosed = 1
-    else: 
-        user.diagnosed = 0
-    user.save()
-    context = {"percentage" : result, "user" : user}
-    return render(request, "diagnose/result.jsp", context)
+        result = model_activate('diagnose/image/20110504_024354329.jpeg','/Users/jiwon/monkey_django/diagnose/model/resnet(cpu)(18) (1).pkl')
+        if(result > 80):
+            user.diagnosed = 1
+        else: 
+            user.diagnosed = 0
+        user.save()
+        context = {"percentage" : result, "user" : user}
+        return render(request, "diagnose/result.jsp", context)
+    except :
+        return HttpResponse("잘못된 접근입니다. 로그인 후 다시 시도해 주세요.")  
 
 def home_view(request):
     context = {}
