@@ -73,6 +73,8 @@ def predict(request):
             user.diagnosed = 0
         user.save()
         context = {"percentage" : result, "user" : user}
+        #사진 삭제하기
+        os.remove(imageUrl)
         return render(request, "diagnose/result.jsp", context)
     except :
         return HttpResponse("잘못된 접근입니다. 로그인 후 다시 시도해 주세요.")  

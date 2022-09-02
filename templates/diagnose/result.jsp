@@ -37,7 +37,7 @@
       <div class="h_inner">
         <div class="m_logo">
           <h1 class="tit_h1">
-            <a href="#header"></a>
+            <a href="/"></a>
             <span class="blind">monky</span>
           </h1>
           <h2>Monkey Magic</h2>
@@ -56,7 +56,7 @@
                 var loginStatus = true
               </script>
               <li>
-                <a id="logoutButton" href="#">로그아웃</a>
+                <a id="logoutButton" href="/users/logout/">로그아웃</a>
                 <div id="loginStatus" class="d-none">true</div>
               </li>
               <li>
@@ -137,10 +137,6 @@
               alert("로그인 해주세요.");
               location.href = "/users/login/view/";
             }
-          })
-          $("#logoutButton").on("click", function(){
-            window.sessionStorage.setItem("loggedin", false);
-            location.href = "/users/logout/"
           })
         })
       </script>

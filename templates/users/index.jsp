@@ -57,7 +57,7 @@
                 var loginStatus = true
               </script>
               <li>
-                <a id="logoutButton" href="#">로그아웃</a>
+                <a id="logoutButton" href="/users/logout/">로그아웃</a>
                 <div id="loginStatus" class="d-none">true</div>
               </li>
               <li>
@@ -143,10 +143,6 @@
             alert("로그인 해주세요.");
             location.href = "/users/login/view/";
           }
-        })
-        $("#logoutButton").on("click", function(){
-          window.sessionStorage.setItem("loggedin", false);
-          location.href = "/users/logout/"
         })
       })
     </script>
