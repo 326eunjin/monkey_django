@@ -36,28 +36,130 @@ body {
 .container .signup-form {
   background: rgba(0, 0, 0, 0.4);
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
-  padding: 30px;
-  margin-top: 60px;
+  padding: 20px;
+  margin-top: 80px;
 }
 
 .signup-form h2 {
   font-weight: bold;
   color: white;
   margin: 0 0 18px;
+  margin-top: 20px;
 }
 
-.form-control,
-.btn {
-  min-height: 38px;
+.signup-form .sign {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.form-group label {
+  font-size: 15px;
+  color: white;
+  display: block;
+}
+
+.form-group .d-none {
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.form-group .d-flex {
+  overflow: hidden;
+}
+
+.form-group input {
+  width: 80%;
+  float: left;
+  height: 35px;
   border-radius: 2px;
   font-size: 14px;
 }
 
-.btn {
+.form-group button {
+  width: 20%;
+  float: right;
+  height: 35px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #111;
+  outline: none;
+  border: 0;
+}
+
+.pass {
+  width: 100%;
+  overflow: hidden;
+}
+
+.pass .pass1 {
+  width: 45%;
+  float: left;
+}
+
+.pass .pass1 input {
+  width: 100%;
+}
+
+.pass .pass2 {
+  width: 45%;
+  float: right;
+}
+
+.pass .pass2 input {
+  width: 100%;
+}
+
+.sel {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+}
+
+.sel li:first-child {
+  width: 45%;
+  float: left;
+}
+
+.sel li:last-child {
+  width: 45%;
+  float: right;
+}
+
+.sel li input {
+  width: 20px;
+  margin-top: 5px;
+  margin-right: 17px;
+}
+
+.sel li p {
+  margin-top: 10px;
+}
+
+.sol {
+  margin-top: -15px;
+}
+
+.form-group select {
+  width: 100%;
+  float: left;
+  height: 35px;
+  border-radius: 2px;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+form .submi {
+  display: block;
+  width: 150px;
+  height: 35px;
+  margin: 0 auto;
+  border-radius: 2px;
+  color: white;
   font-size: 15px;
   font-weight: bold;
   background-color: #111;
   outline: none;
   border: 0;
-  width: 60px;
+  margin-bottom: 20px;
 }
