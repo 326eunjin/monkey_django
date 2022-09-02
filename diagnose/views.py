@@ -3,20 +3,32 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import ImagefieldForm
 from users.models import User
+import pickle
 import time
-import datetime
+
 # Create your views here.
+def predict(request):
+    userId = request.session['id']
+    image = User.objects.get(id=userId)
+    res_data = {'image', image}
+    return res_data
 
-
+def showPredict(request):
+    userId = request.session['id']
+    user = User.objects.get(id=userId)
+    context = {'user' : user}
+    return render(request, 'diagnose/showimage.jsp', context)
+    
 def home_view(request):
     context = {}
-    mail = request.session['user']
     if request.method == "POST":
+        id = request.session['id']
         form = ImagefieldForm(request.POST, request.FILES)
         if form.is_valid():
             img = form.cleaned_data.get("image_field")
             # now = time.strftime('%Y-%m-%d %H:%M:%S')
-            obj = User.objects.get(mail=mail)
+            obj = User.objects.get(id=id)
+            obj.updatedAt = time.strftime('%Y-%m-%d %H:%M:%S') #업데이트 시간 왜 안됨
             # obj.delete()
             # obj1 = User.objects.create(
             #     image=img,
@@ -30,8 +42,8 @@ def home_view(request):
             # obj1.save()
             obj.image = img
             obj.save()
-            return redirect('/')  # 사진 올린 후 경로!
-    else:
+            return redirect('/diagnose/predict/view')  # 사진 올린 후 경로!
+    else :
         form = ImagefieldForm()
         context['form'] = form
         return render(request, "diagnose/upload_file.jsp", context)

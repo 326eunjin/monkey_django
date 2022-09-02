@@ -43,22 +43,39 @@
           </h1>
           <h2>Monkey Magic</h2>
           <div class="sub">
-            <ul class="snb">
+            <ul class="snb d-flex">
               <li>
-                <a href="#none">ENG</a>
+                <a href="/users/english/view/">ENG</a>
+              </li>
+              <li>
+                <a href="/">KOR</a>
               </li>
             </ul>
             <ul class="login">
+              {% if request.session.loggedin %}
+              <script>
+                var loginStatus = true;
+              </script>
               <li>
                 <a href="{% url 'users:login' %}">로그인</a>
+                <a id="logoutButton" href="#">로그아웃</a>
+                <div id="loginStatus" class="d-none">true</div>
               </li>
               <li>
-                <a href="#none">회원가입</a>
+                <a href="/users/mypage/view/" class="text-white">{{
+                  user.mail
+                }}</a>
               </li>
               <li>
-                <a href="#none" class="imgg"></a>
+                <a href="/users/mypage/view/" class="imgg"></a>
                 <span class="blind">my</span>
               </li>
+              {% else %}
+              <script>
+                loginStatus = false;
+              </script>
+              <li><a href="/users/login/view/">로그인</a></li>
+              {% endif %}
             </ul>
             <ul class="search">
               <input type="text" placeholder="Search" />
@@ -73,7 +90,7 @@
                 <a href="#mv">원숭이두창</a>
               </li>
               <li>
-                <a href="#none">검사</a>
+                <a href="#" name="examineButton">검사</a>
               </li>
               <li>
                 <a href="#none">원숭이두창맵</a>
@@ -101,7 +118,7 @@
             활용해주시길 바랍니다.)
           </p>
           <div class="start">
-            <p><a href="#none">검사 시작</a></p>
+            <p><a href="#" name="examineButton">검사 시작</a></p>
           </div>
         </div>
       </div>
@@ -112,12 +129,28 @@
           Monkey Magic
           <br />
           BE 소프트웨어학부 장은진 글로벌미디어학부 20182764 황지원 / PM
-          글로벌미디어학부 20182728 이동호 / AI 글로벌미디어학부 2019 방지훈 /
-          FE 글로벌미디어학부 2021 김혜령
+          글로벌미디어학부 20182728 이동호 / AI 글로벌미디어학부 20192684 방지훈
+          / FE 글로벌미디어학부 2021 김혜령
           <br />
           TEL : 010.5112.1400 Copyright (c) 2022 SW. ALL ALL RIGHTS RESERVED
         </address>
       </div>
     </footer>
+    <script>
+      $(document).ready(function () {
+        $("a[name=examineButton]").on("click", function () {
+          if (loginStatus == true) {
+            location.href = "/diagnose/input/";
+          } else {
+            alert("로그인 해주세요.");
+            location.href = "/users/login/view/";
+          }
+        });
+        $("#logoutButton").on("click", function () {
+          window.sessionStorage.setItem("loggedin", false);
+          location.href = "/users/logout/";
+        });
+      });
+    </script>
   </body>
 </html>
