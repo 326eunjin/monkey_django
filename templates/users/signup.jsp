@@ -119,7 +119,6 @@
 				<div class = "col-12 ">
 				<!--<form method = "POST" action = ".">-->
 		
-				<form>
                 	{% csrf_token %} 
 					<h2 class="text-center">회원가입</h2>
 					<div class="sign">
@@ -137,7 +136,7 @@
 								<button id="duplicationCheckButton" class="button btn-primary btn">중복확인</button>
 							</div>
 							<div id="duplicationChecked" class="d-none text-success">중복확인 완료</div>
-							<div id="duplicationCheckFailed" class="d-none text-danger">다른 username을 입력해주세요</div>
+							<div id="duplicationCheckFailed" class="d-none text-danger">다른 이메일을 입력해주세요</div>
 						</div>
 
 						<div class="pass">
@@ -412,7 +411,6 @@
 							</div>
 						<button id="submitButton" type="submit" class="btn btn-primary submi">등록</button>
 					</div>
-				</form>
 			</div>
 		</div>
 	</section>
@@ -448,7 +446,6 @@
 						$("#duplicationCheckFailed").addClass("d-none");
 						idChecker = true;
 					} else{
-						alert("Email이 중복됩니다.");
 						$("#duplicationCheckFailed").removeClass("d-none");
 						$("#duplicationChecked").addClass("d-none");
 						idChecker = false;
@@ -478,7 +475,7 @@
 
 			//db로 넘기는 조건 : 빈칸없음 , id 중복 안됨
 			if(filled==true &&idChecker ==true){
-				
+
 				$.ajax({
 					type : "post"
 					,url : "/users/signup/view/"

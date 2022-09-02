@@ -33,10 +33,10 @@
             </ul>
             <ul class="login">
               <li>
-                <a href="{% url 'users:login' %}">로그인</a>
+                <a href="/users/login/view">로그인</a>
               </li>
               <li>
-                <a href="{% url 'users:signup' %}">회원가입</a>
+                <a href="/users/signup/view">회원가입</a>
               </li>
               <li>
                 <a href="#none" class="imgg"></a>
@@ -56,7 +56,7 @@
                 <a href="#none">원숭이두창</a>
               </li>
               <li>
-                <a href="#none">검사</a>
+                <a href="/diagnose/input/">검사</a>
               </li>
               <li>
                 <a href="#none">원숭이두창맵</a>
@@ -79,20 +79,21 @@
               {{ error }}
             </div>
           </div>
-          <form method="post" action=".">
             {% csrf_token %}
             <h2 class="text-center">로그인</h2>
             <div class="form-group">
               <input
+                id="mail"
                 type="text"
                 name="mail"
                 class="form-control"
-                placeholder="mail"
+                placeholder="user@email.com"
                 required="required"
               />
             </div>
             <div class="form-group">
               <input
+                id="userpw"
                 type="password"
                 name="userpw"
                 class="form-control"
@@ -101,11 +102,8 @@
               />
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-block">
-                <a href="#none">로그인</a>
-              </button>
+              <button class="btn btn-primary btn-block" id="loginButton">로그인</button>
             </div>
-          </form>
           <p class="text-center">
             <a href="/users/signup/view/" id="register">회원 가입</a>
           </p>

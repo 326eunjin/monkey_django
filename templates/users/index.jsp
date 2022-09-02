@@ -57,18 +57,10 @@
                 var loginStatus = true;
               </script>
               <li>
-<<<<<<< HEAD
-                <a href="{% url 'users:login' %}">로그인</a>
-                <a id="logoutButton" href="#">로그아웃</a>
-=======
                 <a id="logoutButton" href="/users/logout/">로그아웃</a>
->>>>>>> 329d392884fa0970517d9a6ff8d599c9c5ce476d
-                <div id="loginStatus" class="d-none">true</div>
               </li>
               <li>
-                <a href="/users/mypage/view/" class="text-white">{{
-                  user.mail
-                }}</a>
+                <a href="/users/mypage/view/" class="text-white">{{user.mail}}</a>
               </li>
               <li>
                 <a href="/users/mypage/view/" class="imgg"></a>
@@ -149,17 +141,8 @@
             alert("로그인 해주세요.");
             location.href = "/users/login/view/";
           }
-<<<<<<< HEAD
-        });
-        $("#logoutButton").on("click", function () {
-          window.sessionStorage.setItem("loggedin", false);
-          location.href = "/users/logout/";
-        });
-      });
-=======
         })
       })
->>>>>>> 329d392884fa0970517d9a6ff8d599c9c5ce476d
     </script>
   </body>
 </html>
