@@ -47,7 +47,7 @@
 			<div class="h_inner">
 			  <div class="m_logo">
 				<h1 class="tit_h1">
-				  <a href="#header"></a>
+				  <a href="http://127.0.0.1:8000/"></a>
 				  <span class="blind">monky</span>
 				</h1>
 				<h2>Monkey Magic</h2>
