@@ -1,4 +1,6 @@
-<html>
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
   <head>
     <meta charset="utf-8" />
     <title>마이페이지</title>

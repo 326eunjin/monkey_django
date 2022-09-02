@@ -36,7 +36,7 @@
                 <a href="{% url 'users:login' %}">로그인</a>
               </li>
               <li>
-                <a href="#none">회원가입</a>
+                <a href="{% url 'users:signup' %}">회원가입</a>
               </li>
               <li>
                 <a href="#none" class="imgg"></a>

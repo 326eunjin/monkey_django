@@ -54,26 +54,28 @@
             <ul class="login">
               {% if request.session.loggedin %}
               <script>
-                var loginStatus = true
+                var loginStatus = true;
               </script>
               <li>
                 <a id="logoutButton" href="#">Log out</a>
                 <div id="loginStatus" class="d-none">true</div>
               </li>
               <li>
-                <a href="/users/mypage/view/" class="text-white">{{user.mail}}</a>
+                <a href="/users/mypage/view/" class="text-white">{{
+                  user.mail
+                }}</a>
               </li>
               <li>
                 <a href="/users/mypage/view/" class="imgg"></a>
                 <span class="blind">my</span>
               </li>
               {% else %}
-                <script>
-                  loginStatus = false
-                </script>
-                <li><a href="/users/login/view/">Log in</a></li>
-                {% endif %}
-              </ul>
+              <script>
+                loginStatus = false;
+              </script>
+              <li><a href="/users/login/view/">Log in</a></li>
+              {% endif %}
+            </ul>
             <ul class="search">
               <input type="text" placeholder="Search" />
               <button>Search</button>
@@ -107,10 +109,12 @@
         <div class="text_box">
           <h3>Monkey Pox</h3>
           <p>
-            This examination is for detecting whether your rash could be a symptom of monkey pox by using an AI model.
+            This examination is for detecting whether your rash could be a
+            symptom of monkey pox by using an AI model.
             <br />
             <br />
-            (This test is not an official diagnosis by a doctor. Please use it only as a guide.) 
+            (This test is not an official diagnosis by a doctor. Please use it
+            only as a guide.)
           </p>
           <div class="start">
             <p><a href="#" name="examineButton">Start exmaination</a></p>
@@ -123,25 +127,25 @@
         <address>
           Monkey Magic
           <br />
-          [BE] School of Software, Eunjin Jang. Global School of Media, Jiwon Hwang / [PM]
-          Global School of Media, Dongho Lee / [AI] Global School of Media, Jihoon Bang /
-          [FE] Global School of Media Hyeryeong Kim
+          [BE] School of Software, Eunjin Jang. Global School of Media, Jiwon
+          Hwang / [PM] Global School of Media, Dongho Lee / [AI] Global School
+          of Media, Jihoon Bang / [FE] Global School of Media Hyeryeong Kim
           <br />
           TEL : +82)010.5112.1400 Copyright (c) 2022 SW. ALL ALL RIGHTS RESERVED
         </address>
       </div>
     </footer>
     <script>
-      $(document).ready(function(){
-        $('a[name=examineButton]').on("click", function(){
-          if(loginStatus==true){
+      $(document).ready(function () {
+        $("a[name=examineButton]").on("click", function () {
+          if (loginStatus == true) {
             location.href = "/diagnose/input/";
-          } else{
+          } else {
             alert("login needed");
             location.href = "/users/login/view/";
           }
-        })
-      })
+        });
+      });
     </script>
   </body>
 </html>
