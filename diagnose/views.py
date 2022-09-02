@@ -69,15 +69,10 @@ def predict(request):
         user.diagnosed = 1
     else: 
         user.diagnosed = 0
+    user.save()
     context = {"percentage" : result, "user" : user}
     return render(request, "diagnose/result.jsp", context)
 
-def showPredict(request):
-    userId = request.session['id']
-    user = User.objects.get(id=userId)
-    context = {'user' : user}
-    return render(request, 'diagnose/showimage.jsp', context)
-    
 def home_view(request):
     context = {}
     if request.method == "POST":
