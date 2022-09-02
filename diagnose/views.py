@@ -63,8 +63,14 @@ def model_activate(img_path,model_path):
 
 def predict(request):
     user = User.objects.get(id=request.session['id'])
+    #result = model_activate('user.image', '모델경로')
     result = model_activate('diagnose/image/20110504_024354329.jpeg','/Users/jiwon/monkey_django/diagnose/model/resnet(cpu)(18).pkl')
-    return HttpResponse(result)
+    if(result > 80):
+        user.diagnosed = 1
+    else: 
+        user.diagnosed = 0
+    context = {"percentage" : result, "user" : user}
+    return render(request, "diagnose/result.jsp", context)
 
 def showPredict(request):
     userId = request.session['id']
