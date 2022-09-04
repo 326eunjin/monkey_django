@@ -119,6 +119,7 @@
 </html>
 =======
 <html>
+<<<<<<< HEAD
     <head>
     </head>
     <body>
@@ -134,3 +135,11 @@
     </body>
 </html> 
 >>>>>>> 696c02252ea014ecbe25f503a45f0618f76e7e73
+=======
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+</html> 
+>>>>>>> 222d630db186e76da92b228c1d00f48d567d52b0
