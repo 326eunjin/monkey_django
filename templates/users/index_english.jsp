@@ -62,9 +62,7 @@
                 <div id="loginStatus" class="d-none">true</div>
               </li>
               <li>
-                <a href="/users/mypage/view/" class="text-white">{{
-                  user.mail
-                }}</a>
+                <a href="/users/mypage/view/" class="text-white">{{user.mail}}</a>
               </li>
               <li>
                 <a href="/users/mypage/view/" class="imgg"></a>

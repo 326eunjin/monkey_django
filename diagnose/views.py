@@ -68,11 +68,9 @@ def model_activate(img_path, model_path):
 def predict(request):
     try:
         user = User.objects.get(id=request.session['id'])
-    #result = model_activate('user.image', '모델경로')
-        imageUrl = '/Users/jiwon/monkey_django/uploaded_files/' + \
-            str(user.image)
-        result = model_activate(
-            imageUrl, '/Users/jiwon/monkey_django/diagnose/model/resnet(cpu)(18) (1).pkl')
+        #result = model_activate('user.image', '모델경로')
+        imageUrl = '/Users/jiwon/monkey_django/media/' + str(user.image)
+        result = model_activate(imageUrl, 'diagnose/model/resnet(cpu)(18) (2).pkl')
         if(result > 80):
             user.diagnosed = 1
         else:
@@ -82,8 +80,8 @@ def predict(request):
         # 사진 삭제하기
         os.remove(imageUrl)
         return render(request, "diagnose/result.jsp", context)
-    except:
-        return HttpResponse("잘못된 접근입니다. 로그인 후 다시 시도해 주세요.")
+    except Exception as e:
+        return HttpResponse(e)
 
 
 def home_view(request):
