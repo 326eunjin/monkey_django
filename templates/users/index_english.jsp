@@ -85,13 +85,13 @@
           <nav>
             <ul>
               <li>
-                <a href="#none">About MonkeyPox</a>
+                <a href="/ins/">About MonkeyPox</a>
               </li>
               <li>
                 <a name="examineButton" href="#">Examine</a>
               </li>
               <li>
-                <a href="#none">Map</a>
+                <a href="/map/">Map</a>
               </li>
               <li>
                 <a href="#none">Etc</a>
