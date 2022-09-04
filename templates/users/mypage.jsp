@@ -85,13 +85,13 @@
             </ul>
             <ul class="login">
               <li>
-                <a href="/users/login/view">로그인</a>
+                <a id="logoutButton" href="/users/logout/">로그아웃</a>
               </li>
               <li>
-                <a href="/users/signup/view">회원가입</a>
+                <a href="/users/mypage/view/" class="text-white">{{user.mail}}</a>
               </li>
               <li>
-                <a href="#none" class="imgg"></a>
+                <a href="/users/mypage/view/" class="imgg"></a>
                 <span class="blind">my</span>
               </li>
             </ul>
@@ -132,7 +132,7 @@
               <th>Gender :</th>
             </tr>
             <tr>
-              <td>{{ user.mail }}</td>
+              <td>{{user.mail}}</td>
               {%if user.gender == 0%}
               <td>male</td>
               {%else%}
