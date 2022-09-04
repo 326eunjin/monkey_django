@@ -84,16 +84,16 @@
           <nav>
             <ul>
               <li>
-                <a href="#mv">원숭이두창</a>
+                <a href="/users/ins/view/">원숭이두창</a>
               </li>
               <li>
                 <a href="#" name="examineButton">검사</a>
               </li>
               <li>
-                <a href="#none">원숭이두창맵</a>
+                <a href="/users/map/view/">원숭이두창맵</a>
               </li>
               <li>
-                <a href="#none">기타</a>
+                <a href="/users/etc/view/">기타</a>
               </li>
             </ul>
           </nav>
@@ -127,7 +127,7 @@
           <br />
           BE 소프트웨어학부 장은진 글로벌미디어학부 20182764 황지원 / PM
           글로벌미디어학부 20182728 이동호 / AI 글로벌미디어학부 20192684 방지훈
-          / FE 글로벌미디어학부 2021 김혜령
+          / FE 글로벌미디어학부 20213004 김혜령
           <br />
           TEL : 010.5112.1400 Copyright (c) 2022 SW. ALL ALL RIGHTS RESERVED
         </address>
