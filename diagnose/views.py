@@ -116,4 +116,4 @@ class show(DetailView):
 
 
 def map(request):
-    return render(request, 'maps/barchart.jsp')
+    return render(request, 'users/map.jsp')

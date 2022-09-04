@@ -19,7 +19,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
-from users.views import home
+from users.views import home, ins
 from diagnose.views import map
 
 urlpatterns = [
@@ -27,7 +27,8 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('', home),
     path('diagnose/', include('diagnose.urls')),
-    path('map/', map)
+    path('map/', map),
+    path('ins/', ins),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

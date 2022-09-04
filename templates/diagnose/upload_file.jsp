@@ -70,13 +70,13 @@
           <nav>
             <ul>
               <li>
-                <a href="#mv">원숭이두창</a>
+                <a href="/ins/">원숭이두창</a>
               </li>
               <li>
                 <a href="#" name="examineButton">검사</a>
               </li>
               <li>
-                <a href="#none">원숭이두창맵</a>
+                <a href="/map/">원숭이두창맵</a>
               </li>
               <li>
                 <a href="#none">기타</a>
