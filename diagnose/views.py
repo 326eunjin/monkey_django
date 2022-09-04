@@ -116,4 +116,4 @@ class show(DetailView):
 
 
 def map(request):
-    return render(request, 'users/maps.jsp')
+    return render(request, 'users/map.jsp')
