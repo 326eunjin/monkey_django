@@ -18,6 +18,7 @@ import torch.optim as optim
 import torchvision
 import joblib
 from PIL import Image
+from django.views.generic import ListView, DetailView
 
 
 def model_activate(img_path, model_path):
@@ -107,3 +108,9 @@ def home_view(request):
 def success(request):
     return HttpResponse('successfully uploaded')
 # Create your views here.
+
+
+class show(DetailView):
+    model = User
+    template_name = 'diagnose/showimage.jsp'
+    context_object_name = 'emp'
