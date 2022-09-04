@@ -92,10 +92,10 @@
                 <a href="#" name="examineButton">검사</a>
               </li>
               <li>
-                <a href="#none">원숭이두창맵</a>
+                <a href="/users/map/view/">원숭이두창맵</a>
               </li>
               <li>
-                <a href="#none">기타</a>
+                <a href="/users/etc/view/">기타</a>
               </li>
             </ul>
           </nav>
