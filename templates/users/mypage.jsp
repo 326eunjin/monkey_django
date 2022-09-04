@@ -66,6 +66,7 @@
         },
       });
     </script>
+    <link rel="stylesheet" href="{% static 'css/mypage.css' %}" />
   </head>
   <body>
     <div class="container">

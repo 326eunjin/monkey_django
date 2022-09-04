@@ -53,14 +53,16 @@
             <ul class="login">
               {% if request.session.loggedin %}
               <script>
-                var loginStatus = true
+                var loginStatus = true;
               </script>
               <li>
                 <a id="logoutButton" href="/users/logout/">로그아웃</a>
                 <div id="loginStatus" class="d-none">true</div>
               </li>
               <li>
-                <a href="/users/mypage/view/" class="text-white">{{user.mail}}</a>
+                <a href="/users/mypage/view/" class="text-white">{{
+                  user.mail
+                }}</a>
               </li>
               <li>
                 <a href="/users/mypage/view/" class="imgg"></a>
@@ -68,11 +70,10 @@
               </li>
               {% else %}
               <script>
-                loginStatus = false
+                loginStatus = false;
               </script>
               <li><a href="/users/login/view/">로그인</a></li>
               {% endif %}
-
             </ul>
             <ul class="search">
               <input type="text" placeholder="Search" />
@@ -101,46 +102,46 @@
       </div>
     </header>
     <section id="mv">
-        <div class="text-center main_text">
-            <div>당신의 일치율은</div>
-            <br>
-            <h1>{{percentage}}%</h1>
-        </div>
-        <div class="d-flex">
-            <div>질병관리청 1339</div>
-            <div>근처 병원 찾기</div>
-        </div>
-        <hr>
-        <div>
-            이 수치는 AI 모델을 활용해 타 피부질환의 발진을 비교하여 나온 수치입니다. 정확한 의학적 검사가 아니므로, 질병관리청에서의 진단 검사와 같은 정확한 진단이 필요합니다. 
-        </div>
+      <div class="text-center main_text">
+        <div>당신의 일치율은</div>
+        <br />
+        <h1>{{ percentage }}%</h1>
+      </div>
+      <div class="d-flex">
+        <div>질병관리청 1339</div>
+        <div>근처 병원 찾기</div>
+      </div>
+      <hr />
+      <div>
+        이 수치는 AI 모델을 활용해 타 피부질환의 발진을 비교하여 나온
+        수치입니다. 정확한 의학적 검사가 아니므로, 질병관리청에서의 진단 검사와
+        같은 정확한 진단이 필요합니다.
+      </div>
     </section>
     <footer>
-        <div class="foot_box">
-          <address>
-            Monkey Magic
-            <br />
-            BE 소프트웨어학부 장은진 글로벌미디어학부 20182764 황지원 / PM
-            글로벌미디어학부 20182728 이동호 / AI 글로벌미디어학부 20192684 방지훈 /
-            FE 글로벌미디어학부 2021 김혜령
-            <br />
-            TEL : 010.5112.1400 Copyright (c) 2022 SW. ALL ALL RIGHTS RESERVED
-          </address>
-        </div>
-      </footer>
-      <script>
-        $(document).ready(function(){
-          $('a[name=examineButton]').on("click", function(){
-            if(loginStatus==true){
-              location.href = "/diagnose/input/";
-            } else{
-              alert("로그인 해주세요.");
-              location.href = "/users/login/view/";
-            }
-          })
-        })
-      </script>
-  
-    </body>
+      <div class="foot_box">
+        <address>
+          Monkey Magic
+          <br />
+          BE 소프트웨어학부 장은진 글로벌미디어학부 20182764 황지원 / PM
+          글로벌미디어학부 20182728 이동호 / AI 글로벌미디어학부 20192684 방지훈
+          / FE 글로벌미디어학부 2021 김혜령
+          <br />
+          TEL : 010.5112.1400 Copyright (c) 2022 SW. ALL ALL RIGHTS RESERVED
+        </address>
+      </div>
+    </footer>
+    <script>
+      $(document).ready(function () {
+        $("a[name=examineButton]").on("click", function () {
+          if (loginStatus == true) {
+            location.href = "/diagnose/input/";
+          } else {
+            alert("로그인 해주세요.");
+            location.href = "/users/login/view/";
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
-
