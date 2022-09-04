@@ -71,7 +71,7 @@ def predict(request):
         #result = model_activate('user.image', '모델경로')
         imageUrl = 'media/' + str(user.image)
         result = model_activate(
-            imageUrl, 'diagnose/model/resnet(cpu)(18) (2).pkl')
+            imageUrl, 'diagnose/model/resnet(cpu)(18).pkl')
         if(result > 80):
             user.diagnosed = 1
         else:
@@ -116,4 +116,4 @@ class show(DetailView):
 
 
 def map(request):
-    return render(request, 'users/map.jsp')
+    return render(request, 'users/maps.jsp')
