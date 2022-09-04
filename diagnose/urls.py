@@ -9,4 +9,5 @@ urlpatterns = [
     # path('signup/idcheck/', users.views.idcheck, name='check')
     path('input/', diagnose.views.home_view),
     path('predict/view', diagnose.views.predict),
+    # path('show/', diagnose.views.index, name='index'),
 ]

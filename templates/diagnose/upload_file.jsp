@@ -1,13 +1,15 @@
 <html>
-<head>
-<title>Django File Upload</title>
-</head>
-<body>
-<form method="POST" enctype="multipart/form-data"> 
-    {% csrf_token %} 
-    {{ form.as_p }} 
-    <input type="submit" value="Submit" id="submitbutton"> 
-</form> 
+    <head>
+    </head>
+    <body>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="uploaded_file">
+            <button type="submit">Upload</button>
+          </form>
 
-</body>
-</html>
+          {% if filename %}
+            <p>File uploaded: <a href="{{ filename }}">{{ filename }}</a></p>
+          {% endif %}
+    </body>
+</html> 
