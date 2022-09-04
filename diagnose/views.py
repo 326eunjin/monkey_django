@@ -69,7 +69,7 @@ def predict(request):
     try:
         user = User.objects.get(id=request.session['id'])
         #result = model_activate('user.image', '모델경로')
-        imageUrl = '/Users/jiwon/monkey_django/media/' + str(user.image)
+        imageUrl = 'media/' + str(user.image)
         result = model_activate(imageUrl, 'diagnose/model/resnet(cpu)(18) (2).pkl')
         if(result > 80):
             user.diagnosed = 1
