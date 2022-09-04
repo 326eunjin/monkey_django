@@ -81,7 +81,7 @@ def predict(request):
         os.remove(imageUrl)
         return render(request, "diagnose/result.jsp", context)
     except Exception as e:
-        return HttpResponse(e)
+        return HttpResponse("로그인을 한 후에 다시 시도해주세요")
 
 
 def home_view(request):
