@@ -30,6 +30,10 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/7d891d878a.js"
+      crossorigin="anonymous"
+    ></script>
     <script>
       function getCookie(name) {
         var cookieValue = null;

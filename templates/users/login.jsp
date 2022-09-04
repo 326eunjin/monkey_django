@@ -15,6 +15,10 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/7d891d878a.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header id="header">
@@ -79,31 +83,33 @@
               {{ error }}
             </div>
           </div>
-            {% csrf_token %}
-            <h2 class="text-center">로그인</h2>
-            <div class="form-group">
-              <input
-                id="mail"
-                type="text"
-                name="mail"
-                class="form-control"
-                placeholder="user@email.com"
-                required="required"
-              />
-            </div>
-            <div class="form-group">
-              <input
-                id="userpw"
-                type="password"
-                name="userpw"
-                class="form-control"
-                placeholder="Password"
-                required="required"
-              />
-            </div>
-            <div class="form-group">
-              <button class="btn btn-primary btn-block" id="loginButton">로그인</button>
-            </div>
+          {% csrf_token %}
+          <h2 class="text-center">로그인</h2>
+          <div class="form-group">
+            <input
+              id="mail"
+              type="text"
+              name="mail"
+              class="form-control"
+              placeholder="user@email.com"
+              required="required"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              id="userpw"
+              type="password"
+              name="userpw"
+              class="form-control"
+              placeholder="Password"
+              required="required"
+            />
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" id="loginButton">
+              로그인
+            </button>
+          </div>
           <p class="text-center">
             <a href="/users/signup/view/" id="register">회원 가입</a>
           </p>
