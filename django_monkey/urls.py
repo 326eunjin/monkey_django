@@ -20,12 +20,14 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from users.views import home
+from diagnose.views import map
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('', home),
     path('diagnose/', include('diagnose.urls')),
+    path('map/', map)
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

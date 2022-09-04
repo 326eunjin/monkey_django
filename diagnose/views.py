@@ -70,7 +70,8 @@ def predict(request):
         user = User.objects.get(id=request.session['id'])
         #result = model_activate('user.image', '모델경로')
         imageUrl = 'media/' + str(user.image)
-        result = model_activate(imageUrl, 'diagnose/model/resnet(cpu)(18) (2).pkl')
+        result = model_activate(
+            imageUrl, 'diagnose/model/resnet(cpu)(18) (2).pkl')
         if(result > 80):
             user.diagnosed = 1
         else:
@@ -112,3 +113,7 @@ class show(DetailView):
     model = User
     template_name = 'diagnose/showimage.jsp'
     context_object_name = 'emp'
+
+
+def map(request):
+    return render(request, 'maps/barchart.jsp')
