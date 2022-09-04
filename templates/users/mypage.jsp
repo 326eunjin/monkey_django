@@ -69,22 +69,80 @@
     <link rel="stylesheet" href="{% static 'css/mypage.css' %}" />
   </head>
   <body>
-    <div class="container">
-      <table class="table">
-        <tr>
-          <th>Email :</th>
-          <th>Gender :</th>
-        </tr>
-        <tr>
-          <td>{{ user.mail }}</td>
-          {%if user.gender == 0%}
-          <td>male</td>
-          {%else%}
-          <td>female</td>
-          {%endif%}
-        </tr>
-      </table>
-      <a href="/">돌아가기</a>
-    </div>
+    <header id="header">
+      <div class="h_inner">
+        <div class="m_logo">
+          <h1 class="tit_h1">
+            <a href="http://127.0.0.1:8000/"></a>
+            <span class="blind">monky</span>
+          </h1>
+          <h2>Monkey Magic</h2>
+          <div class="sub">
+            <ul class="snb">
+              <li>
+                <a href="#none">ENG</a>
+              </li>
+            </ul>
+            <ul class="login">
+              <li>
+                <a href="/users/login/view">로그인</a>
+              </li>
+              <li>
+                <a href="/users/signup/view">회원가입</a>
+              </li>
+              <li>
+                <a href="#none" class="imgg"></a>
+                <span class="blind">my</span>
+              </li>
+            </ul>
+            <ul class="search">
+              <input type="text" placeholder="Search" />
+              <button>검색</button>
+            </ul>
+          </div>
+        </div>
+        <div class="m_nav">
+          <nav>
+            <ul>
+              <li>
+                <a href="#none">원숭이두창</a>
+              </li>
+              <li>
+                <a href="/diagnose/input/">검사</a>
+              </li>
+              <li>
+                <a href="#none">원숭이두창맵</a>
+              </li>
+              <li>
+                <a href="#none">기타</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <section id="mv">
+      <img src="{% static 'css/images/main_image.png' %}" />
+      <div class="container">
+        <div class="mybox">
+          <h2 class="text-center">마이페이지</h2>
+          <table class="table">
+            <tr>
+              <th>Email :</th>
+              <th>Gender :</th>
+            </tr>
+            <tr>
+              <td>{{ user.mail }}</td>
+              {%if user.gender == 0%}
+              <td>male</td>
+              {%else%}
+              <td>female</td>
+              {%endif%}
+            </tr>
+          </table>
+          <a href="/">돌아가기</a>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

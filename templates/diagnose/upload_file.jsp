@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {% load static %}
 <!DOCTYPE html>
 <html lang="ko">
@@ -117,7 +116,7 @@
     </footer>
   </body>
 </html>
-=======
+<!-- =======
 <html>
 <<<<<<< HEAD
     <head>
@@ -142,4 +141,4 @@
         <input type="submit" value="Submit">
     </form>
 </html> 
->>>>>>> 222d630db186e76da92b228c1d00f48d567d52b0
+>>>>>>> 222d630db186e76da92b228c1d00f48d567d52b0 -->

@@ -1,0 +1,67 @@
+@import "header.css";
+
+body {
+  background: #f4f4f4;
+}
+
+.anchor {
+  display: block;
+  height: 250px;
+  visibility: hidden;
+}
+
+#mv {
+  height: 750px;
+  width: 100%;
+  background: #f4f4f4;
+  overflow: hidden;
+}
+
+#mv img {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 170px;
+}
+
+.container {
+  width: 450px;
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%);
+}
+
+.container .mybox {
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+  padding: 30px;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  margin-top: 80px;
+}
+
+.mybox h2 {
+  font-weight: bold;
+  color: white;
+  margin: 0 0 18px;
+  margin-bottom: 40px;
+}
+
+.mybox th,
+td {
+  color: white;
+}
+
+.mybox a {
+  color: #d5d5d5;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mybox a:hover {
+  color: rgb(247, 204, 124);
+  text-decoration: none;
+}
