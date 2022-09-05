@@ -69,60 +69,73 @@
     </script>
     <link rel="stylesheet" href="{% static 'css/mypage.css' %}" />
   </head>
-  <body>
-    <header id="header">
-      <div class="h_inner">
-        <div class="m_logo">
-          <h1 class="tit_h1">
-            <a href="http://127.0.0.1:8000/"></a>
-            <span class="blind">monky</span>
-          </h1>
-          <h2>Monkey Magic</h2>
-          <div class="sub">
-            <ul class="snb">
-              <li>
-                <a href="#none">ENG</a>
-              </li>
-            </ul>
-            <ul class="login">
-              <li>
-                <a id="logoutButton" href="/users/logout/">로그아웃</a>
-              </li>
-              <li>
-                <a href="/users/mypage/view/" class="text-white">{{user.mail}}</a>
-              </li>
-              <li>
-                <a href="/users/mypage/view/" class="imgg"></a>
-                <span class="blind">my</span>
-              </li>
-            </ul>
-            <ul class="search">
-              <input type="text" placeholder="Search" />
-              <button>검색</button>
-            </ul>
-          </div>
-        </div>
-        <div class="m_nav">
-          <nav>
-            <ul>
-              <li>
-                <a href="/ins/">원숭이두창</a>
-              </li>
-              <li>
-                <a href="/diagnose/input/">검사</a>
-              </li>
-              <li>
-                <a href="/map/">원숭이두창맵</a>
-              </li>
-              <li>
-                <a href="#none">기타</a>
-              </li>
-            </ul>
-          </nav>
+  <header id="header">
+    <div class="h_inner">
+      <div class="m_logo">
+        <h1 class="tit_h1">
+          <a href="/"></a>
+          <span class="blind">monky</span>
+        </h1>
+        <h2>Monkey Magic</h2>
+        <div class="sub">
+          <ul class="snb d-flex">
+            <li>
+              <a href="/users/english/view/">ENG</a>
+            </li>
+            <li>
+              <a href="/">KOR</a>
+            </li>
+          </ul>
+          <ul class="login">
+            {% if request.session.loggedin %}
+            <script>
+              var loginStatus = true;
+            </script>
+            <li>
+              <a id="logoutButton" href="/users/logout/">로그아웃</a>
+              <div id="loginStatus" class="d-none">true</div>
+            </li>
+            <li>
+              <a href="/users/mypage/view/" class="text-white">{{user.mail}}</a>
+            </li>
+            <li>
+              <a href="/users/mypage/view/" class="imgg"></a>
+              <span class="blind">my</span>
+            </li>
+            {% else %}
+            <script>
+              loginStatus = false;
+            </script>
+            <li><a href="/users/login/view/">로그인</a></li>
+            {% endif %}
+          </ul>
+          <ul class="search">
+            <input type="text" placeholder="Search" />
+            <button>검색</button>
+          </ul>
         </div>
       </div>
-    </header>
-    <section id="mv">
+      <div class="m_nav">
+        <nav>
+          <ul>
+            <li>
+              <a href="/ins/">원숭이두창</a>
+            </li>
+            <li>
+              <a href="/diagnose/input" name="examineButton">검사</a>
+            </li>
+            <li>
+              <a href="/map/">원숭이두창맵</a>
+            </li>
+            <li>
+              <a href="#none">기타</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <section id="mv">
       <img src="{% static 'css/images/main_image.png' %}" />
       <div class="container">
         <div class="mybox">

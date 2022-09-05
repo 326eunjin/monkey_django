@@ -30,7 +30,7 @@
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/result.css' %}" />
   </head>
   <body>
     <header id="header">
@@ -86,7 +86,7 @@
                 <a href="/ins/">원숭이두창</a>
               </li>
               <li>
-                <a href="#" name="examineButton">검사</a>
+                <a href="/diagnose/input/" name="examineButton">검사</a>
               </li>
               <li>
                 <a href="/map/">원숭이두창맵</a>
@@ -100,14 +100,17 @@
       </div>
     </header>
     <section id="mv">
+      <img src="{% static 'css/images/main_image.png' %}" />
+      <div class="container">
       <div class="text-center main_text">
-        <div>당신의 일치율은</div>
+        <div><b>당신의 일치율은</b></div>
         <br />
-        <h1>{{ user.result }}%</h1>
+        <h1><b class="text-danger">{{ user.result }}%</b></h1>
+        <br>
       </div>
       <div class="d-flex">
-        <div>질병관리청 1339</div>
-        <div>근처 병원 찾기</div>
+        <div class="ml-5">질병관리청 1339</div>
+        <div class="ml-5">근처 병원 찾기</div>
       </div>
       <hr />
       <div>
@@ -116,6 +119,7 @@
         같은 정확한 진단이 필요합니다.
       </div>
     </section>
+  </div>
     <footer>
       <div class="foot_box">
         <address>

@@ -105,8 +105,10 @@
       <img src="{% static 'css/images/main_image.png' %}" />
       <div class="text-center container">
         <div class="text-box">
-          <h4 class="text-center">당신의 일치율은</h4>
-          <h2 class="text-center">{{ user.result }}%</h2>
+          <div class="inner">
+            <h4 class="text-center">당신의 일치율은</h4>
+            <h2 class="text-center">{{ user.result }}%</h2>
+          </div>
           <div class="d-flex one339">
             <a href="https://www.kdca.go.kr/contents.es?mid=a20701000000"
               >질병관리청 1339 바로가기</a

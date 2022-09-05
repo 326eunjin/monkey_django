@@ -93,7 +93,7 @@
                 <a href="/map/">원숭이두창맵</a>
               </li>
               <li>
-                <a href="/etc/">기타</a>
+                <a href="#none">기타</a>
               </li>
             </ul>
           </nav>
