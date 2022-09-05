@@ -91,7 +91,7 @@
       <div class="container">
         <div class="box">
           <h2 class="text-center">원숭이두창 검사</h2>
-          <div>
+          <div class="content">
           <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
@@ -99,13 +99,13 @@
             <!--
             <div class="d-flex">
               <div>발진
-              <select name="rash">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
+                <select name="rash">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
               </div>
               <div>발열
                 <select name="rash">
@@ -117,13 +117,13 @@
                 </select>
               </div>
               <div>두통
-              <select name="rash">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
+                <select name="rash">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
               </div>
               <div>허리통증
                 <select name="rash">
@@ -133,8 +133,8 @@
                   <option value="4">4</option>
                   <option value="5">5</option>
                 </select>
-                </div>
-                <div>근육통
+              </div>
+              <div>근육통
                   <select name="rash">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -142,8 +142,8 @@
                     <option value="4">4</option>
                     <option value="5">5</option>
                   </select>
-                  </div>
-                  <div>림프부종
+                </div>
+                <div>림프부종
                     <select name="rash">
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -151,8 +151,8 @@
                       <option value="4">4</option>
                       <option value="5">5</option>
                     </select>
-                    </div>
-                    <div>무기력증
+                </div>
+                <div>무기력증
                       <select name="rash">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -160,8 +160,11 @@
                         <option value="4">4</option>
                         <option value="5">5</option>
                       </select>
-                      </div>
-            </div>-->
+                </div>
+              </div>
+            </div>             
+          </div>-->
+
           </form>
           <div>
         </div>
