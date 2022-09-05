@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -29,8 +30,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/result.css' %}" />
   </head>
   <body>
     <header id="header">
@@ -60,7 +60,9 @@
                 <div id="loginStatus" class="d-none">true</div>
               </li>
               <li>
-                <a href="/users/mypage/view/" class="text-white">{{user.mail}}</a>
+                <a href="/users/mypage/view/" class="text-white">{{
+                  user.mail
+                }}</a>
               </li>
               <li>
                 <a href="/users/mypage/view/" class="imgg"></a>
@@ -100,23 +102,27 @@
       </div>
     </header>
     <section id="mv">
-      <div class="text-center main_text">
-        <div>당신의 일치율은</div>
-        <br />
-        <h1>{{ user.result }}%</h1>
-      </div>
-      <div class="d-flex">
-        <div>질병관리청 1339</div>
-        <div>근처 병원 찾기</div>
-      </div>
-      <hr />
-      <div>
-        이 수치는 AI 모델을 활용해 타 피부질환의 발진을 비교하여 나온
-        수치입니다. 정확한 의학적 검사가 아니므로, 질병관리청에서의 진단 검사와
-        같은 정확한 진단이 필요합니다.
+      <img src="{% static 'css/images/main_image.png' %}" />
+      <div class="text-center container">
+        <div class="text-box">
+          <h4 class="text-center">당신의 일치율은</h4>
+          <h2 class="text-center">{{ user.result }}%</h2>
+          <div class="d-flex one339">
+            <a href="https://www.kdca.go.kr/contents.es?mid=a20701000000"
+              >질병관리청 1339 바로가기</a
+            >
+          </div>
+          <hr />
+          <p>
+            이 수치는 AI 모델을 활용해 타 피부질환의 발진을 비교하여 나온
+            수치입니다. <br />
+            정확한 의학적 검사가 아니므로, 질병관리청에서의 진단 검사와 같은
+            정확한 진단이 필요합니다.
+          </p>
+        </div>
       </div>
     </section>
-    <footer>
+    <footer id="ft">
       <div class="foot_box">
         <address>
           Monkey Magic
