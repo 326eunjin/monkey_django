@@ -70,7 +70,7 @@
           <nav>
             <ul>
               <li>
-                <a href="#none">원숭이두창</a>
+                <a href="/ins/">원숭이두창</a>
               </li>
               <li>
                 <a href="#" name="examineButton">검사</a>
@@ -79,7 +79,7 @@
                 <a href="/map/">원숭이두창맵</a>
               </li>
               <li>
-                <a href="/users/etc/view/">기타</a>
+                <a href="/etc/">기타</a>
               </li>
             </ul>
           </nav>

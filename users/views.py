@@ -129,4 +129,4 @@ def ins(request):
             context = {"loggedin": False}
     except:
         context = {"loggedin": False}
-    return render(request, 'users/ins.jsp')
+    return render(request, 'users/ins.jsp', context)
