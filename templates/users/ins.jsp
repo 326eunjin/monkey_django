@@ -47,7 +47,9 @@
                 <a id="logoutButton" href="/users/logout/">로그아웃</a>
               </li>
               <li>
-                <a href="/users/mypage/view/" class="text-white">{{user.mail}}</a>
+                <a href="/users/mypage/view/" class="text-white">{{
+                  user.mail
+                }}</a>
               </li>
               <li>
                 <a href="/users/mypage/view/" class="imgg"></a>
@@ -86,7 +88,7 @@
         </div>
       </div>
     </header>
-    
+
     <section id="mv">
       <img src="{% static 'css/images/main_image.png' %}" />
       <div class="container">
@@ -169,17 +171,17 @@
       </div>
     </footer>
 
-  <script>
-    $(document).ready(function () {
-      $("a[name=examineButton]").on("click", function () {
-        if (loginStatus == true) {
-          location.href = "/diagnose/input/";
-        } else {
-          alert("로그인 해주세요.");
-          location.href = "/users/login/view/";
-        }
+    <script>
+      $(document).ready(function () {
+        $("a[name=examineButton]").on("click", function () {
+          if (loginStatus == true) {
+            location.href = "/diagnose/input/";
+          } else {
+            alert("로그인 해주세요.");
+            location.href = "/users/login/view/";
+          }
+        });
       });
-    });
-  </script>
+    </script>
   </body>
 </html>
