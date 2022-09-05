@@ -86,7 +86,7 @@
                 <a href="/ins/">원숭이두창</a>
               </li>
               <li>
-                <a href="#" name="examineButton">검사</a>
+                <a href="/diagnose/input/" name="examineButton">검사</a>
               </li>
               <li>
                 <a href="/map/">원숭이두창맵</a>
