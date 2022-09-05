@@ -35,18 +35,7 @@
                 <a href="#none">ENG</a>
               </li>
             </ul>
-            <ul class="login">
-              <li>
-                <a href="/users/login/view">로그인</a>
-              </li>
-              <li>
-                <a href="/users/signup/view">회원가입</a>
-              </li>
-              <li>
-                <a href="#none" class="imgg"></a>
-                <span class="blind">my</span>
-              </li>
-            </ul>
+
             <ul class="search">
               <input type="text" placeholder="Search" />
               <button>검색</button>
@@ -149,6 +138,8 @@
         },
       });
     </script>
+
+    
     <script>
       $(document).ready(function () {
         $("#loginButton").on("click", function () {
@@ -174,6 +165,14 @@
             },
           });
         });
+        $("a[name=examineButton]").on("click", function () {
+            if (loginStatus == true) {
+              location.href = "/diagnose/input/";
+            } else {
+              alert("로그인 해주세요.");
+              location.href = "/users/login/view/";
+            }
+          });
       });
     </script>
   </body>
