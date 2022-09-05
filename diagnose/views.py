@@ -97,9 +97,10 @@ def home_view(request):
         id = request.session['id']
         form = ImagefieldForm(request.POST, request.FILES)
         if form.is_valid():
+            obj = User.objects.get(id=id)
+
             img = form.cleaned_data.get("image_field")
             # now = time.strftime('%Y-%m-%d %H:%M:%S')
-            obj = User.objects.get(id=id)
             obj.updatedAt = time.strftime('%Y-%m-%d %H:%M:%S')  # 업데이트 시간 왜 안됨
             obj.image = img
             obj.save()
