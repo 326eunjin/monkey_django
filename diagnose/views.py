@@ -70,8 +70,8 @@ def predict(request):
         user = User.objects.get(id=request.session['id'])
         #result = model_activate('user.image', '모델경로')
         imageUrl = 'media/' + str(user.image)
-        result = model_activate(
-            imageUrl, 'diagnose/model/resnet(cpu)(18).pkl')
+        result = model_activate(imageUrl, 'diagnose/model/resnet(cpu)(18).pkl')
+        user.result = result
         if(result > 80):
             user.diagnosed = 1
         else:
@@ -84,7 +84,11 @@ def predict(request):
     except Exception as e:
         return HttpResponse("로그인을 한 후에 다시 시도해주세요")
 
-
+def result_view(request):
+    user = User.objects.get(id=request.session['id'])
+    context = {"user" : user}
+    return render(request, "diagnose/result copy.jsp", context)
+    
 def home_view(request):
     context = {}
     if request.method == "POST":
@@ -101,6 +105,7 @@ def home_view(request):
     else:
         form = ImagefieldForm()
         context['form'] = form
+        context['user'] = User.objects.get(id=request.session['id'])
         return render(request, "diagnose/upload_file.jsp", context)
 
 
@@ -116,4 +121,6 @@ class show(DetailView):
 
 
 def map(request):
-    return render(request, 'users/map.jsp')
+    user = User.objects.get(id=request.session['id'])
+    context = {"user" : user}
+    return render(request, 'users/map.jsp', context)

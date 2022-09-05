@@ -103,7 +103,7 @@
       <div class="text-center main_text">
         <div>당신의 일치율은</div>
         <br />
-        <h1>{{ percentage }}%</h1>
+        <h1>{{ user.result }}%</h1>
       </div>
       <div class="d-flex">
         <div>질병관리청 1339</div>

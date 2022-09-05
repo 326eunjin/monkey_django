@@ -54,6 +54,7 @@ def loginRequest(request):
         if check_password(userpw, user.userpw):
             request.session['id'] = user.id
             request.session['loggedin'] = True
+            request.session['mail'] = user.mail
             res_data['result'] = "loginSuccess"
             return JsonResponse(res_data)
         else:

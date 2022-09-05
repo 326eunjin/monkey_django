@@ -1,13 +1,12 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
-    <title>마이페이지</title>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <title>monkey</title>
+    <script
+      src="https://kit.fontawesome.com/7d891d878a.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -30,63 +29,35 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script
-      src="https://kit.fontawesome.com/7d891d878a.js"
-      crossorigin="anonymous"
-    ></script>
-
-    <script>
-      function getCookie(name) {
-        var cookieValue = null;
-        if (document.cookie && document.cookie !== "") {
-          var cookies = document.cookie.split(";");
-          for (var i = 0; i < cookies.length; i++) {
-            var cookie = cookies[i].trim();
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) === name + "=") {
-              cookieValue = decodeURIComponent(
-                cookie.substring(name.length + 1)
-              );
-              break;
-            }
-          }
-        }
-        return cookieValue;
-      }
-      var csrftoken = getCookie("csrftoken");
-
-      function csrfSafeMethod(method) {
-        // these HTTP methods do not require CSRF protection
-        return /^(GET|HEAD|OPTIONS|TRACE)$/.test(method);
-      }
-      $.ajaxSetup({
-        beforeSend: function (xhr, settings) {
-          if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-            xhr.setRequestHeader("X-CSRFToken", csrftoken);
-          }
-        },
-      });
-    </script>
-    <link rel="stylesheet" href="{% static 'css/mypage.css' %}" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
   <body>
     <header id="header">
       <div class="h_inner">
         <div class="m_logo">
           <h1 class="tit_h1">
-            <a href="http://127.0.0.1:8000/"></a>
+            <a href="/"></a>
             <span class="blind">monky</span>
           </h1>
           <h2>Monkey Magic</h2>
           <div class="sub">
-            <ul class="snb">
+            <ul class="snb d-flex">
               <li>
-                <a href="#none">ENG</a>
+                <a href="/users/english/view/">ENG</a>
+              </li>
+              <li>
+                <a href="/">KOR</a>
               </li>
             </ul>
             <ul class="login">
+              {% if request.session.loggedin %}
+              <script>
+                var loginStatus = true;
+              </script>
               <li>
                 <a id="logoutButton" href="/users/logout/">로그아웃</a>
+                <div id="loginStatus" class="d-none">true</div>
               </li>
               <li>
                 <a href="/users/mypage/view/" class="text-white">{{user.mail}}</a>
@@ -95,6 +66,12 @@
                 <a href="/users/mypage/view/" class="imgg"></a>
                 <span class="blind">my</span>
               </li>
+              {% else %}
+              <script>
+                loginStatus = false;
+              </script>
+              <li><a href="/users/login/view/">로그인</a></li>
+              {% endif %}
             </ul>
             <ul class="search">
               <input type="text" placeholder="Search" />
@@ -109,7 +86,7 @@
                 <a href="/ins/">원숭이두창</a>
               </li>
               <li>
-                <a href="/diagnose/input/">검사</a>
+                <a href="#" name="examineButton">검사</a>
               </li>
               <li>
                 <a href="/map/">원숭이두창맵</a>
@@ -123,36 +100,23 @@
       </div>
     </header>
     <section id="mv">
-      <img src="{% static 'css/images/main_image.png' %}" />
-      <div class="container">
-        <div class="mybox">
-          <h2 class="text-center">마이페이지</h2>
-          <table class="table">
-            <tr>
-              <th>Email </th>
-              <th>Gender </th>
-              <th>Result</th>
-            </tr>
-            <tr>
-              <td>{{user.mail}}</td>
-              {%if user.gender == 0%}
-              <td>male</td>
-              {%else%}
-              <td>female</td>
-              {%endif%}
-              {%if user.result != null%}
-              <td>
-              <button class="btn btn-sm btn-dark" id="resultButton">검사결과</button>
-              {%else%}
-              결과없음
-              {%endif%}
-              </td>
-          </table>
-          <a href="/">돌아가기</a>
-        </div>
+      <div class="text-center main_text">
+        <div>당신의 일치율은</div>
+        <br />
+        <h1>{{ user.result }}%</h1>
+      </div>
+      <div class="d-flex">
+        <div>질병관리청 1339</div>
+        <div>근처 병원 찾기</div>
+      </div>
+      <hr />
+      <div>
+        이 수치는 AI 모델을 활용해 타 피부질환의 발진을 비교하여 나온
+        수치입니다. 정확한 의학적 검사가 아니므로, 질병관리청에서의 진단 검사와
+        같은 정확한 진단이 필요합니다.
       </div>
     </section>
-    <footer id="ft">
+    <footer>
       <div class="foot_box">
         <address>
           Monkey Magic
@@ -165,12 +129,5 @@
         </address>
       </div>
     </footer>
-    <script>
-      $(document).ready(function(){
-        $("#resultButton").on("click", function(){
-          location.href = "/diagnose/result/view"
-        })
-      })
-    </script>
   </body>
 </html>

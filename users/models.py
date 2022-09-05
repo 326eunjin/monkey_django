@@ -63,7 +63,7 @@ class User(models.Model):
     lethargy = models.IntegerField(blank=True, null=True)
     diagnosed = models.IntegerField(blank=True, null=True)
     image = models.ImageField(upload_to="images/")
-
+    result = models.IntegerField(blank=True, null=True)
     class Meta:
         managed = False
         db_table = 'user'
