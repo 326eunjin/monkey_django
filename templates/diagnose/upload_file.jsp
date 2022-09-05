@@ -96,6 +96,7 @@
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="Submit" id="submitbutton" />
+            <!--
             <div class="d-flex">
               <div>발진
                 <select name="rash">
@@ -161,7 +162,9 @@
                       </select>
                 </div>
               </div>
-            </div>
+            </div>             
+          </div>-->
+
           </form>
           <div>
         </div>
