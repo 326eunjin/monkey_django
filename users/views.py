@@ -121,4 +121,12 @@ def english(request):
 
 
 def ins(request):
+    try:
+        if(request.session['loggedin']):
+            user = User.objects.get(id=request.session.get('id'))
+            context = {"loggedin": True, "user": user}
+        else:
+            context = {"loggedin": False}
+    except:
+        context = {"loggedin": False}
     return render(request, 'users/ins.jsp')
