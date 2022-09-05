@@ -53,14 +53,12 @@ def model_activate(img_path, model_path):
         ])
     }
     # 이미지 전처리 과정인데 여기서 'test' 부분으로 test데이터셋 resize해서 이미지 크기 평준화 시키는곳
-    validation_batch1 = torch.stack(
-        [data_transforms['test'](file_list).to(device)])
+    validation_batch1 = torch.stack([data_transforms['test'](file_list).to(device)])
 
-    # 이건 내가 위에꺼가 원숭이두창, 나머지로 원숭이두창, 나머지의 결과가 어떻게 나오나 보려고 나눠둔것 validation_batch한개만 있어도 상관 없음
+    #이건 내가 위에꺼가 원숭이두창, 나머지로 원숭이두창, 나머지의 결과가 어떻게 나오나 보려고 나눠둔것 validation_batch한개만 있어도 상관 없음
     pred_logits_tensor = model(validation_batch1)
     pred_probs = F.softmax(pred_logits_tensor, dim=1).cpu().data.numpy()
-    not_monkey = int(pred_probs[0][0]*100)
-    monkey = int(pred_probs[0][1]*100)
+    monkey = int(pred_probs[0][0]*100)
     return monkey
 # Create your views here.
 
