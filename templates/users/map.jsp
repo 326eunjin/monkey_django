@@ -89,6 +89,19 @@
     </header>
 
     <body>
+      <script>
+        $(document).ready(function () {
+          $("a[name=examineButton]").on("click", function () {
+            if (loginStatus == true) {
+              location.href = "/diagnose/input/";
+            } else {
+              alert("로그인 해주세요.");
+              location.href = "/users/login/view/";
+            }
+          });
+        });
+      </script>
+    
       <section>
       <div>                        
         <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
