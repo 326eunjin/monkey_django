@@ -71,7 +71,7 @@ def predict(request):
         #result = model_activate('user.image', '모델경로')
         imageUrl = 'media/' + str(user.image)
         result = model_activate(imageUrl, 'diagnose/model/resnet(cpu)(18).pkl')
-        user.result = result
+        user.result = 100 - result
         if(result > 80):
             user.diagnosed = 1
         else:

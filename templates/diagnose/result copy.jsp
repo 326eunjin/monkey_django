@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -29,7 +30,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    {% load static %}
     <link rel="stylesheet" href="{% static 'css/result.css' %}" />
   </head>
   <body>
@@ -86,7 +86,7 @@
                 <a href="/ins/">원숭이두창</a>
               </li>
               <li>
-                <a href="/diagnose/input/" name="examineButton">검사</a>
+                <a href="#" name="examineButton">검사</a>
               </li>
               <li>
                 <a href="/map/">원숭이두창맵</a>
@@ -101,26 +101,31 @@
     </header>
     <section id="mv">
       <img src="{% static 'css/images/main_image.png' %}" />
-      <div class="container">
-      <div class="text-center main_text">
-        <div><b>당신의 일치율은</b></div>
-        <br />
-        <h1><b class="text-danger">{{ user.result }}%</b></h1>
-        <br>
-      </div>
-      <div class="d-flex">
-        <div class="ml-5">질병관리청 1339</div>
-        <div class="ml-5">근처 병원 찾기</div>
-      </div>
-      <hr />
-      <div>
-        이 수치는 AI 모델을 활용해 타 피부질환의 발진을 비교하여 나온
-        수치입니다. 정확한 의학적 검사가 아니므로, 질병관리청에서의 진단 검사와
-        같은 정확한 진단이 필요합니다.
+      <div class="text-center container">
+        <div class="text-box">
+          <div class="inner">
+            <h4 class="text-center">당신의 일치율은</h4>
+            <h2 class="text-center">{{ user.result }}%</h2>
+          </div>
+          <div class="one339">
+            <a class="mb-1"href="https://www.kdca.go.kr/contents.es?mid=a20701000000"
+              >질병관리청 1339 바로가기</a
+            >
+            <a  href="https://www.g-health.kr/portal/health/pubHealthSearch/list.do?bbsId=U00198&menuNo=200452"
+            >근처 보건기관 찾기</a
+          >            
+          </div>
+          <hr />
+          <p class="mt-2">
+            이 수치는 AI 모델을 활용해 타 피부질환의 발진을 비교하여 나온
+            수치입니다. <br />
+            정확한 의학적 검사가 아니므로, 질병관리청에서의 진단 검사와 같은
+            정확한 진단이 필요합니다.
+          </p>
+        </div>
       </div>
     </section>
-  </div>
-    <footer>
+    <footer id="ft">
       <div class="foot_box">
         <address>
           Monkey Magic
