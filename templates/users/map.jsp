@@ -25,7 +25,7 @@
       }
 
       #mv {
-        height: 750px;
+        height: 725px;
         width: 100%;
         background: #f4f4f4;
         overflow: hidden;
@@ -39,6 +39,42 @@
       top: 29%;
       transform: translateX(-50%);
     }
+
+    #ft {
+  width: 100%;
+  height: 120px;
+  background: #f4f4f4; /* Old browsers */
+  background: -moz-linear-gradient(
+    top,
+    #f4f4f4 0%,
+    #f4f4f4 60%,
+    #c4c4c4 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    top,
+    #f4f4f4 0%,
+    #f4f4f4 60%,
+    #c4c4c4 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #f4f4f4 0%,
+    #f4f4f4 60%,
+    #c4c4c4 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#c4c4c4',GradientType=0 ); /* IE6-9 */
+}
+
+.foot_box {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 1px;
+}
+
+.foot_box address {
+  font-size: 11px;
+  color: #555;
+}
 
     </style>
   </head>
