@@ -82,7 +82,7 @@ def predict(request):
         os.remove(imageUrl)
         return render(request, "diagnose/result.jsp", context)
     except Exception as e:
-        return redirect('diagnose/result/view')
+        return redirect('/diagnose/result/view')
 
 
 def result_view(request):
