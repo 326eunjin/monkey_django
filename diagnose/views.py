@@ -81,7 +81,7 @@ def predict(request):
         # 사진 삭제하기
         os.remove(imageUrl)
         return render(request, "diagnose/result.jsp", context)
-    except Exception as e:
+    except Exception:
         return redirect('/diagnose/result/view')
 
 
