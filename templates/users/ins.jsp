@@ -57,7 +57,7 @@
           <nav>
             <ul>
               <li>
-                <a href="/ins/">원숭이두창</a>
+                <a href="#none">원숭이두창</a>
               </li>
               <li>
                 <a href="/diagnose/input/">검사</a>
